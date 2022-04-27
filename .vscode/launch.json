@@ -4,7 +4,6 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
-
         {
             "type": "java",
             "name": "Debug (Launch)",
@@ -20,6 +19,17 @@
             "request": "attach",
             "hostName": "localhost",
             "port": 0
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-BattleshipApplication<angular-maven>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.battleship.BattleshipApplication",
+            "projectName": "angular-maven",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
         }
     ]
 }
