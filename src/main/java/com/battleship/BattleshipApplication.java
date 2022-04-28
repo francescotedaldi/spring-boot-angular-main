@@ -36,8 +36,8 @@ public class BattleshipApplication {
 }
 
 @Component
-@ConfigurationProperties("demo")
-class DemoProperties {
+@ConfigurationProperties("battleship")
+class BattleshipProperties {
   private String value;
 
 public String getValue() {
