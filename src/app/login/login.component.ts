@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Login } from '../model/login.model';
 
 @Component({
   selector: 'app-login',
@@ -8,17 +9,13 @@ import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/fo
 })
 export class LoginComponent implements OnInit {
 
+  @Output()
+  public login: EventEmitter<Login> = new EventEmitter<Login>();
+
   public form: FormGroup;
   public submitted: boolean;
-
-  constructor() {
-    this.submitted = false;
-    this.form = new FormGroup({
-      username: new FormControl(null, Validators.required),
-      password: new FormControl(null, Validators.required)
-    });
-  }
   public ngOnInit(): void {
+    this.submitted = false;
     this.buildForm();
   }
 
@@ -31,8 +28,12 @@ export class LoginComponent implements OnInit {
 
   public loginHandler(): void{
     this.submitted = true;
-
     console.log('login: loginHandler: submitted = true;', this.form);
+   
+    if (this.form.valid) {
+      const loginData = this.form.value as Login;
+      this.login.emit(loginData);
+    }
   }
 
   // convenience getter for easy access to form fields

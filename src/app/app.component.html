@@ -1,3 +1,11 @@
-<app-header></app-header>
-<app-login></app-login>
+<app-header>
+</app-header>
+
+<app-login *ngIf="this.getLogged() === false"
+  (login)="isLogged($event)">
+</app-login>
+
+<app-settings *ngIf="this.getLogged() === true">
+</app-settings>
+
 <app-footer></app-footer>

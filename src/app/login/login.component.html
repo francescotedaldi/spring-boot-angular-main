@@ -1,25 +1,25 @@
 <div id="container" class="login">
     <h1> Welcome! </h1>
-    <form class="p-4 h-100" [formGroup]="form" (ngSubmit)="loginHandler()">
-        <div class="jumbotron" [innerHTML]=
-        "'un gioco online sviluppato totalmente da studenti universitari alle prime armi.<hr><strong>Accedi</strong> o <strong>registrati</strong> per iniziare a divertirti con noi!'"></div>
-        <div class="form-group">
-          <label class="required" for="username">Username</label>
-          <input type="text" class="form-control" id="username" formControlName="username">
-          <small *ngIf="submitted && f.username.errors?.required" class="text-theme">
-            Campo obbligatorio!
-          </small>
-        </div>
-        <div class="form-group">
-          <label class="required" for="password">Password</label>
-          <input type="password" class="form-control" id="password" formControlName="password">
-          <small *ngIf="submitted && f.password.errors?.required" class="text-theme">
-            Password obbligatoria!
-          </small>
-        </div>
-        <button type="submit" class="btn btn-custom">
-          <i class="fa fa-sign-in"></i>
-          Login
-        </button>
-      </form>
+    <form class="w-25 p-2 h-50" [formGroup]="form" (ngSubmit)="loginHandler()">
+      <div class="jumbotron" [innerHTML]=
+      "'un gioco online sviluppato totalmente da studenti universitari alle prime armi.<hr><strong>Accedi</strong> o <strong>registrati</strong> per iniziare a divertirti con noi!'"></div>
+      <div class="form-group">
+        <label class="required" for="username">Username</label>
+        <input type="text" class="form-control" id="username" formControlName="username">
+        <small *ngIf="submitted && f.username.errors?.required" class="text-theme">
+          Campo obbligatorio!
+        </small>
+      </div>
+      <div class="form-group">
+        <label class="required" for="password">Password</label>
+        <input type="password" class="form-control" id="password" formControlName="password">
+        <small *ngIf="submitted && f.password.errors?.required" class="text-theme">
+          Campo obbligatorio!
+        </small>
+      </div>
+      <button type="submit" class="btn btn-custom">
+        <i class="fa fa-sign-in"></i>
+        Login
+      </button>
+  </form>
 </div>
