@@ -9,9 +9,9 @@
 .menu,
 a,
 button {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-weight:300px;
-  font-size: 14px;
+  font-family: 'Montserrat', sans-serif;;
+  font-weight: 50%;
+  font-size: 90%;
   text-decoration: none;
 }
 
@@ -19,7 +19,7 @@ nav{
   display: flex;
   justify-content: flex-end;
   align-items:center;
-  padding: 0.2% 1%;
+  padding: 0.6% 1%;
   background: $default-header-background;
 }
   
@@ -30,12 +30,13 @@ nav{
 .menu{
   display: flex;
   list-style: none;
+  align-items:center;
   justify-content: space-around;
 }
 
 .menu a{
   display: inline-block;
-  padding: 0 20px;
+  padding: 0 10px;
   text-decoration: none;
 }
 
@@ -44,12 +45,13 @@ nav{
 }
 
 .menu a:hover{
-  color: cyan;
+  font-size: medium;
+  color: $default-footer-text;
 }
 
 button{
-  padding: 1% 20px;
-  background: greenyellow;
+  padding: 3% 20px;
+  background: rgb(248, 178, 58);
   border: none;
   border-radius: 50px;
   cursor: pointer;
@@ -57,7 +59,7 @@ button{
 }
 
 button:hover{
-  background: #39f;
+  background: rgb(255, 162, 0);
 }
 
 /*
