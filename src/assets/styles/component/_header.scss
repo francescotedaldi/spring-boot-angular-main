@@ -15,22 +15,28 @@ button {
   text-decoration: none;
 }
 
-header{
+nav{
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items:center;
-  padding: 30px 10%;
+  padding: 0.2% 1%;
   background: $default-header-background;
 }
   
+.foto{
+  margin-right: auto;
+}
+
 .menu{
+  display: flex;
   list-style: none;
   justify-content: space-around;
 }
 
-.menu li{
+.menu a{
   display: inline-block;
   padding: 0 20px;
+  text-decoration: none;
 }
 
 .menu li a{
@@ -42,7 +48,7 @@ header{
 }
 
 button{
-  padding: 9px 25px;
+  padding: 1% 20px;
   background: greenyellow;
   border: none;
   border-radius: 50px;
