@@ -5,7 +5,6 @@ import com.battleship.enums.ExceptionType;
 import com.battleship.utils.MessageUtils;
 
 
-
 public class NotImplementedException extends CustomException {
 
     public NotImplementedException() {

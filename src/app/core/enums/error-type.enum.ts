@@ -1,0 +1,6 @@
+export enum ErrorType {
+    VALIDATION = 'VALIDATION',
+    SERVICE = 'SERVICE',
+    UNEXPECTED = 'UNEXPECTED',
+    NOT_IMPLEMENTED  = 'NOT_IMPLEMENTED'
+}

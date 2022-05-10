@@ -1,12 +1,15 @@
 package com.battleship.mappers;
 
+import com.battleship.exceptions.NotImplementedException;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-import com.battleship.exceptions.NotImplementedException;
-
+/**
+ * @author Deborah Medici
+ */
 public abstract class Mapper<DTO, ENTITY> {
 
     public abstract DTO convertEntityToDto(ENTITY entity);

@@ -2,6 +2,7 @@ package com.battleship.services;
 
 import com.battleship.dtos.AckDto;
 
+
 public abstract class CustomService {
 
     protected AckDto ackOK() {

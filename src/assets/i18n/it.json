@@ -1,0 +1,91 @@
+{
+  "components": {
+    "form": {
+      "required_field": "Campo Obbligatorio",
+      "invalid_field": "Campo Invalido",
+      "min": "Il minimo è {{min}}",
+      "max": "Il massimo è {{max}}"
+    },
+    "buttons": {
+      "rules": "Regole del Gioco",
+      "undo": "Annulla",
+      "save": "Salva",
+      "send": "Invia",
+      "home": "Home",
+      "back": "Indietro",
+      "play": "Gioca",
+      "login": "Login",
+      "confirm": "Conferma",
+      "register": "Registrati",
+      "new_configuration": "Nuova Configurazione"
+    },
+    "layout": {
+      "menu": {
+        "title": "Battleship",
+        "signup": "Registrati",
+        "contacts": "Contattaci",
+        "about_us": "About Us",
+        "logout": "Logout",
+        "home": "Home",
+        "flags": {
+          "it": "Italiano",
+          "en": "Inglese"
+        }
+      },
+      "footer": {
+        "links": {
+          "terms": "Termini e Condizioni",
+          "sitemap": "Mappa",
+          "privacy": "Privacy",
+          "policy": "Policy"
+        },
+        "text": "Ingegneria Informatica ed Automatica - Sapienza Università di Roma",
+        "social": {
+          "facebook": {
+            "url": "https://www.facebook.com/",
+            "title": "Facebook"
+          },
+          "twitter": {
+            "url": "https://twitter.com/",
+            "title": "Twitter"
+          },
+          "pinterest": {
+            "url": "https://it.pinterest.com/",
+            "title": "Pinterest"
+          },
+          "linkedin": {
+            "url": "https://www.linkedin.com/",
+            "title": "LinkedIn"
+          }
+        }
+      }
+    },
+    "loader": {
+      "text": "Caricamento"
+    },
+    "modals": {
+      "confirm": {
+        "title": "Sei sicuro?"
+      },
+      "rules": {
+        "title": "Regole del gioco"
+      }
+    }
+  },
+  "features": {
+    "home": {
+      "login": {
+        "text": "<strong class=\"text-theme\">Battleship</strong> &egrave; un gioco online sviluppato totalmente da studenti universitari alle prime armi.<hr><strong>Accedi</strong> o <strong>registrati</strong> per iniziare a divertirti con noi!",
+        "username": "Username",
+        "password": "Password"
+      }
+    },
+    "signup": {
+      "title": "Registrati",
+      "username": "Username",
+      "email": "Email",
+      "password": "Password",
+      "presentation": "Presentazione"
+    }
+  }
+}

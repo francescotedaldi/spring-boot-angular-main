@@ -2,6 +2,7 @@ package com.battleship.dtos;
 
 import java.util.StringJoiner;
 
+
 public class AckDto {
 
     private boolean result;

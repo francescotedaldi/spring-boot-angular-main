@@ -1,8 +1,9 @@
 package com.battleship.validators;
 
+import com.battleship.exceptions.ValidationException;
+
 import java.util.List;
 
-import com.battleship.exceptions.ValidationException;
 
 public abstract class CustomValidator {
 
@@ -11,6 +12,7 @@ public abstract class CustomValidator {
             throw new ValidationException(message);
         }
     }
+
 
     public static void checkEmpty(List<?> values, String message) throws ValidationException {
         if (values == null || values.isEmpty()) {
