@@ -7,12 +7,14 @@ import {HomeGameComponent} from './components/home-game/home-game.component';
 import {HomeLoginComponent} from './components/home-login/home-login.component';
 import {HomeComponent} from './components/home.component';
 import {HomeRoutingModule} from './home-routing.module';
+import { HomeSettingsComponent } from './components/home-settings/home-settings.component';
 
 @NgModule({
     declarations: [
         HomeComponent,
         HomeGameComponent,
-        HomeLoginComponent
+        HomeLoginComponent,
+        HomeSettingsComponent
     ],
     imports: [
         CommonModule,

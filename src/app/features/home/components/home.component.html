@@ -1,4 +1,4 @@
 <app-menu></app-menu>
-<app-home-game *ngIf="loggedUser"></app-home-game>
+<app-home-settings *ngIf="loggedUser"></app-home-settings>
 <app-home-login *ngIf="!loggedUser" (login)="loginHandler($event)"></app-home-login>
 <app-footer></app-footer>

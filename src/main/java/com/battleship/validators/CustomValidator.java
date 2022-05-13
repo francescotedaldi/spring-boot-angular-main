@@ -1,5 +1,6 @@
 package com.battleship.validators;
 
+import com.battleship.enums.BattleColor;
 import com.battleship.exceptions.ValidationException;
 
 import java.util.List;
@@ -31,4 +32,11 @@ public abstract class CustomValidator {
             throw new ValidationException(message);
         }
     }
+    public static void checkBattleColor(BattleColor value, String message) throws ValidationException {
+        if (value == null) throw new ValidationException(message);
+        for (BattleColor b : BattleColor.values()) {
+         if (value.equals(b)) return;
+        }
+        throw new ValidationException(message);
+      }
 }
