@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, EventEmitter, OnDestroy, OnInit, Output} from '@angular/core';
 import {Router} from '@angular/router';
 import {select, Store} from '@ngrx/store';
 import {TranslateService} from '@ngx-translate/core';
@@ -8,6 +8,7 @@ import {AppState} from '../../../../app-state';
 import {User} from '../../../store/user/model/user.model';
 import * as UserActions from '../../../store/user/user.actions';
 import * as UserSelector from '../../../store/user/user.selectors';
+import {PageStatus} from "../../../enums/page-status.enum";
 
 @Component({
   selector: 'app-menu',
@@ -20,6 +21,9 @@ export class MenuComponent implements OnInit, OnDestroy {
 
   public readonly flags: string[] = ['it'];
   public loggedUser: User;
+
+  @Output()
+  public back: EventEmitter<void> = new EventEmitter();
 
   constructor(
       private readonly translate: TranslateService,
@@ -45,6 +49,10 @@ export class MenuComponent implements OnInit, OnDestroy {
 
   public logoutHandler(): void {
     this.store.dispatch(UserActions.logout());
+  }
+
+  public homeHandler(): void {
+    this.back.emit();
   }
 
 }

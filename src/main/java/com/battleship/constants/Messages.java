@@ -17,4 +17,5 @@ public class Messages {
     public static final String ERROR_VALIDATION_BATTLESHIP_TIME = "error.validation.battleship.time";
     public static final String ERROR_VALIDATION_BATTLESHIP_COLOR = "error.validation.battleship.color";
     public static final String ERROR_SERVICE_BATTLESHIP_NOT_EXIST = "error.service.battleship.not_exist";
+    public static final String ERROR_SERVICE_BATTLESHIP_INSTANCE_NOT_EXIST = "error.service.battleship_instance.not_exist";
 }

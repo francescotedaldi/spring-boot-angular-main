@@ -31,7 +31,7 @@
       </li>
       <li class="nav-item" *ngIf="!loggedUser">
         <a class="nav-link">
-          <a class="btn btn-custom btn-sm" [routerLink]="['/signup']">
+          <a class="btn btn-custom btn-sm" [routerLink]="['/signup']" (click)="homeHandler()">
             <i class="fa fa-user"></i>
             {{ 'components.layout.menu.signup' | translate }}
           </a>
