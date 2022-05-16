@@ -1,1 +1,64 @@
-<p>home-settings works!</p>
+<form class="bg-transparent" [formGroup]="form" (ngSubmit)="saveHandler()">
+  <div class="card card-battleship">
+    <div class="card-header">
+      {{'features.battleship.settings.title' | translate}}
+    </div>
+    <div class="card-body">
+      <div class="row">
+        <div class="col">
+          <div class="form-group">
+            <label class="required" for="name">
+              {{ 'features.battleship.settings.name' | translate }}
+            </label>
+            <input type="text" class="form-control" id="name" formControlName="name">
+            <small *ngIf="submitted && f.name.errors?.required" class="battleship-text">
+              {{ 'components.form.required_field' | translate }}
+            </small>
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-group">
+            <label class="required" for="color">
+              {{ 'features.battleship.settings.color' | translate }}
+            </label>
+            <ng-select id="color" formControlName="color" [clearable]="false">
+              <ng-option *ngFor="let color of colors" [value]="color">
+                {{ 'components.enums.color' + color | translate }}
+              </ng-option>
+            </ng-select>
+            <small *ngIf="submitted && f.color.errors?.required" class="battleship-text">
+              {{ 'components.form.required_field' | translate }}
+            </small>
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-group">
+            <label class="required" for="time">
+              {{ 'features.battleship.settings.time' | translate }}
+            </label>
+            <input type="text" class="form-control" id="time" formControlName="time">
+            <small *ngIf="submitted && f.time.errors?.required" class="battleship-text">
+              {{ 'components.form.required_field' | translate }}
+            </small>
+            <small *ngIf="submitted && f.time.errors?.min" class="battleship-text">
+              {{ 'components.form.min' | translate: { min: 15 } }}
+            </small>
+            <small *ngIf="submitted && f.time.errors?.max" class="battleship-text">
+              {{ 'components.form.max' | translate: { max: 120 } }}
+            </small>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-footer text-center">
+      <button class="btn btn-game mr-2" type="submit">
+        <i class="fa fa-save"></i>
+        {{ 'components.buttons.save' | translate }}
+      </button>
+      <button class="btn btn-game" type="button" (click)="backHandler()">
+        <i class="fa fa-undo"></i>
+        {{ 'components.buttons.undo' | translate }}
+      </button>
+    </div>
+  </div>
+</form>

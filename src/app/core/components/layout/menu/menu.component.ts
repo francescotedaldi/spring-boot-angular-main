@@ -18,7 +18,7 @@ import * as UserSelector from '../../../store/user/user.selectors';
 export class MenuComponent implements OnInit, OnDestroy {
   private readonly subscriptions: Subscription = new Subscription();
 
-  public readonly flags: string[] = ['it', 'en'];
+  public readonly flags: string[] = ['it'];
   public loggedUser: User;
 
   constructor(

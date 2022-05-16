@@ -1,0 +1,58 @@
+<div class="card card-battleship mt-xl-4 ml-4 mr-4 mb-8">
+  <div class="card-header d-flex justify-content-between">
+    <span>{{ 'features.battleship.lobby.title' | translate }}</span>
+    <div >
+      <button type="button" class="btn btn-sm btn-game" (click)="createHandler()">
+        <i class="fa fa-plus"></i>
+        {{ 'components.buttons.new_configuration' | translate }}
+      </button>
+    </div>
+  </div>
+  <div class="card-body">
+    <div class="row">
+      <div class="text-center col-12" *ngIf="!instances?.length">
+        <div class="jumbotron">
+          {{ 'features.battleship.lobby.no_instances' | translate }}
+        </div>
+      </div>
+      <div class="col-lg-4 col-sm-6 col-12 mb-3" *ngFor="let instance of instances">
+        <div class="card">
+          <div class="card-header bg-transparent p-0">
+            <img src="../../../../../assets/images/battleship/home.jpg" class="card-img-top" alt="battleship">
+          </div>
+          <div class="card-body text-info">
+            <h5 class="card-title text-center">{{ instance.name }}</h5>
+            <hr>
+            <div class="card-text text-info">
+              <ul class="list-two-columns list-unstyled">
+                <li>
+                  <i class="fa fa-clock-o text-dark"></i>
+                  {{ instance.time }}
+                </li>
+                <li class="text-right">
+                  <i class="fa fa-users text-danger"></i>
+                  {{ instance.color }}
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="card-footer text-center">
+            <div >
+              <button type="button" class="btn btn-primary btn-sm" (click)="playHandler(instance)">
+                <i class="fa fa-play"></i>
+              </button>
+              <button type="button" class="btn btn-warning btn-sm ml-2" (click)="editHandler(instance)">
+                <i class="fa fa-pencil"></i>
+              </button>
+              <button type="button" class="btn btn-danger btn-sm ml-2" (click)="deleteHandler(instance.id)">
+                <i class="fa fa-trash"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--<p>instance work</p>-->

@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component} from '@angular/core';
+import {ChangeDetectionStrategy, Component, EventEmitter, Output} from '@angular/core';
 // import {GameCategory} from '../../../../core/enums/game-category.enum';
 // import {GameType} from '../../../../core/enums/game-type.enum';
 import {ANY} from '../../../../core/utils/any';
@@ -16,6 +16,8 @@ export class HomeGameComponent {
   // public categories: ANY[] = this.getEnum(GameCategory);
   // public selectedCategory: GameCategory;
   // public games: GameType[];
+  @Output()
+  public back: EventEmitter<void> = new EventEmitter();
 
   constructor() {
     // this.configuration.set(GameCategory.ALL, [ GameType.MEMORY, GameType.MINEFIELD, GameType.LUCANUM ]);

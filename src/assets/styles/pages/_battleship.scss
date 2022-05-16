@@ -1,0 +1,87 @@
+@import "../_palette-default.scss";
+
+main {
+  background: $default-page-bg;
+
+  .menu {
+    background: $default-menu-bg;
+    //@include box-shadow(0 3px 5px 0 $default-menu-border);
+
+    .navbar-brand {
+      color: $default-menu-text;
+    }
+  }
+
+  footer {
+    background: $default-footer-bg;
+    color: $default-footer-text;
+    //@include box-shadow(3px 0 5px 0 $default-footer-border);
+  }
+
+  form {
+    .form-control:focus {
+      border-color: $default-form-focus-border;
+      box-shadow: $default-form-focus-shadow;
+    }
+
+    &.required:after {
+      color: $default-required;
+    }
+  }
+
+  .card {
+    &.card-battleship {
+
+      .card-header {
+        background-color: $default-card-header-bg;
+        color: $default-card-header-text;
+        min-height: 55px;
+        line-height: 31px;
+      }
+
+      .card-body {
+        color: $default-card-body-text;
+      }
+
+      .card-footer {
+        background-color: $default-card-footer-bg;
+        color: $default-card-footer-text;
+      }
+    }
+  }
+
+  .btn {
+    &.btn-game {
+      background: $default-button-bg;
+      border-color: $default-button-border;
+      color: $default-button-text;
+
+      &:hover, &:focus, &:active, &.active {
+        background: $default-button-bg-hover;
+        border-color: $default-button-border-hover;
+        color: $default-button-text-hover;
+      }
+    }
+  }
+
+  .battleship-text {
+    color: $default-text;
+  }
+
+  .battleship-text-dark {
+    color: $default-text-dark;
+  }
+
+  ::-webkit-scrollbar {
+    background-color: $default-scrollbar-bg;
+  }
+
+  ::-webkit-scrollbar-track {
+    -webkit-box-shadow: $default-scrollbar-shadow;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: $default-scrollbar-bg-active;
+    -webkit-box-shadow: $default-scrollbar-shadow;
+  }
+}

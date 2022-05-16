@@ -70,6 +70,10 @@
       "rules": {
         "title": "Regole del gioco"
       }
+    },
+    "enums": {
+      "colorROSSO": "ROSSO",
+      "colorBLU": "BLU"
     }
   },
   "features": {
@@ -86,6 +90,18 @@
       "email": "Email",
       "password": "Password",
       "presentation": "Presentazione"
+    },
+    "battleship": {
+      "lobby": {
+        "title": "Lobby",
+        "no_instances": "Nessuna istanza"
+      },
+      "settings": {
+        "title": "Configurazione",
+        "name": "Nome",
+        "color": "Colore",
+        "time": "Tempo"
+      }
     }
   }
 }
