@@ -40,12 +40,11 @@ export class HomeComponent implements OnInit, OnDestroy {
   public ngOnInit(): void {
     this.store.dispatch(BattleshipActions.getAllInstances());
 
-
-    this.subscriptions.add(this.store.pipe(select(UserSelector.getUser)).subscribe((user: User) => {
-      this.loggedUser = user;
-    }));
     this.subscriptions.add(this.store.pipe(select(BattleshipSelectors.getInstances)).subscribe((instances: BattleshipInstance[]) => {
       this.instances = instances;
+    }));
+    this.subscriptions.add(this.store.pipe(select(UserSelector.getUser)).subscribe((user: User) => {
+      this.loggedUser = user;
     }));
     this.subscriptions.add(this.store.pipe(select(BattleshipSelectors.getGame)).subscribe((game: BattleshipGame) => {
       this.game = game;

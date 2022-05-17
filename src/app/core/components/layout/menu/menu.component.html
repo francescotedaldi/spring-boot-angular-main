@@ -23,7 +23,7 @@
     <ul class="navbar-nav flags">
       <li class="nav-item">
         <a class="nav-link">
-          <a class="btn btn-custom btn-sm" [routerLink]="['/']">
+          <a class="btn btn-custom btn-sm" [routerLink]="['/']" (click)="homeHandler()">
             <i class="fa fa-home"></i>
             {{ 'components.layout.menu.home' | translate }}
           </a>
@@ -31,7 +31,7 @@
       </li>
       <li class="nav-item" *ngIf="!loggedUser">
         <a class="nav-link">
-          <a class="btn btn-custom btn-sm" [routerLink]="['/signup']" (click)="homeHandler()">
+          <a class="btn btn-custom btn-sm" [routerLink]="['/signup']" >
             <i class="fa fa-user"></i>
             {{ 'components.layout.menu.signup' | translate }}
           </a>
@@ -39,7 +39,7 @@
       </li>
       <li class="nav-item">
         <a class="nav-link">
-          <a class="btn btn-custom btn-sm" [routerLink]="['/']">
+          <a class="btn btn-custom btn-sm" [routerLink]="['/']" (click)="aboutUsHandler()">
             <i class="fa fa-envelope"></i>
             {{ 'components.layout.menu.about_us' | translate }}
           </a>

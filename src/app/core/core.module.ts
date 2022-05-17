@@ -9,6 +9,7 @@ import {MenuComponent} from './components/layout/menu/menu.component';
 import {ModalAlertComponent} from './components/modals/modal-alert/modal-alert.component';
 import {ModalConfirmComponent} from './components/modals/modal-confirm/modal-confirm.component';
 import {IsLoggedDirective} from './directives/is-logged.directive';
+import { ModalAboutUsComponent } from './components/modals/modal-about-us/modal-about-us.component';
 // import {MmssPipe} from './pipe/mmss.pipe';
 
 @NgModule({
@@ -19,6 +20,7 @@ import {IsLoggedDirective} from './directives/is-logged.directive';
     IsLoggedDirective,
     ModalAlertComponent,
     ModalConfirmComponent,
+    ModalAboutUsComponent,
     // MmssPipe
   ],
   imports: [
@@ -34,11 +36,13 @@ import {IsLoggedDirective} from './directives/is-logged.directive';
     AckComponent,
     IsLoggedDirective,
     ModalAlertComponent,
+    ModalAboutUsComponent,
     // MmssPipe
   ],
   entryComponents: [
     ModalConfirmComponent,
-    ModalAlertComponent
+    ModalAlertComponent,
+    ModalAboutUsComponent,
   ]
 })
 export class CoreModule {

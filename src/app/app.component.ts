@@ -4,8 +4,6 @@ import {TranslateService} from '@ngx-translate/core';
 import {BsLocaleService} from 'ngx-bootstrap';
 import {Subscription} from 'rxjs';
 import {AppState} from './app-state';
-// import {GameType} from './core/enums/game-type.enum';
-// import * as CoreSelectors from './core/store/core/core.selectors';
 
 @Component({
   selector: 'app-root',
@@ -32,11 +30,6 @@ export class AppComponent implements OnInit {
   }
 
   public ngOnInit(): void {
-    // this.subscriptions.add(this.store.pipe(select(CoreSelectors.getGameType)).subscribe((gameType: GameType) => {
-    //   setTimeout(() => {
-    //     this.mainClass = gameType.toLowerCase();
-    //   });
-    // }));
   }
 
 }
