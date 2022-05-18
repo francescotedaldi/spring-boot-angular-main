@@ -1,4 +1,5 @@
-import {ChangeDetectionStrategy, Component, EventEmitter, Output} from '@angular/core';
+import {ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import { BattleshipGame } from 'src/app/core/store/battleship/model/battleship-game.model';
 // import {GameCategory} from '../../../../core/enums/game-category.enum';
 // import {GameType} from '../../../../core/enums/game-type.enum';
 import {ANY} from '../../../../core/utils/any';
@@ -9,31 +10,43 @@ import {ANY} from '../../../../core/utils/any';
   styleUrls: ['./home-game.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class HomeGameComponent {
+export class HomeGameComponent implements OnInit {
 
   // private readonly configuration: Map<GameCategory, GameType[]> = new Map<GameCategory, GameType[]>();
   //
   // public categories: ANY[] = this.getEnum(GameCategory);
   // public selectedCategory: GameCategory;
   // public games: GameType[];
+  @Input()
+  public game: BattleshipGame;
+
   @Output()
   public back: EventEmitter<void> = new EventEmitter();
 
+  public userfrontState: string[][];
+  public pcfrontState: string[][];
+
   constructor() {
-    // this.configuration.set(GameCategory.ALL, [ GameType.MEMORY, GameType.MINEFIELD, GameType.LUCANUM ]);
-    // this.configuration.set(GameCategory.CARDS, [ ]);
-    // this.configuration.set(GameCategory.PUZZLE, [ GameType.MEMORY, GameType.MINEFIELD ]);
-    // this.configuration.set(GameCategory.IDLE, [  ]);
-    // this.configuration.set(GameCategory.TABLE, [ GameType.LUCANUM ]);
-    // this.filterHandler(GameCategory.ALL);
+
+   
   }
 
-  // public filterHandler(category: GameCategory): void {
-  //   this.selectedCategory = category;
-  //   this.games = this.configuration.get(category);
-  // }
-  //
-  // public getEnum(obj: ANY): ANY[] {
-  //   return Object.keys(obj).filter((k: ANY) => typeof obj[k as ANY] !== 'number');
-  // }
+  public ngOnInit(): void {
+    this.userfrontState = new Array(this.game.instance.columns);
+    for (let i = 0; i < this.game.instance.columns; i++) {
+      this.userfrontState[i] = new Array(this.game.instance.columns);
+    }
+    let index = 0;
+    for (let i = 0; i < this.game.instance.columns; i++) {
+      for (let j = 0; j < this.game.instance.columns; j++) {
+        this.userfrontState[i][j] = 'sea';
+        index++;
+      }
+    }
+
+    console.log(this.game);
+    
+  }
+
+  
 }
