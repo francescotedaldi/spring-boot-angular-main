@@ -103,6 +103,11 @@
         "color": "Colore",
         "time": "Tempo",
         "delete_message": "Vuoi eliminare la configurazione?"
+      },
+      "game": {
+        "time": "Tempo residuo:",
+        "user": "Utente",
+        "pc": "Computer"
       }
     }
   }

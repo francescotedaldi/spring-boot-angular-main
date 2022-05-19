@@ -1,12 +1,11 @@
 <div class = "row justify-content-center">
     <div class = "text-dark">
-        <h2> Tempo: {{this.timer}} </h2>
+        <h2> {{'features.battleship.game.time' | translate}} {{this.timer}} </h2>
     </div>
 </div>
-
 <div class = "row">
-    <div class = "col ">
-        <p> Utente </p>
+    <div class = "col justify-content-center">
+        <h4> {{'features.battleship.game.user' | translate}} </h4>
         <div class = "card-body table-responsive">
             <table class="table-cell jumbotron">
                 <tr *ngFor="let cellRow of game.usercells; let i = index;">
@@ -19,7 +18,7 @@
         </div>
     </div>
     <div class = "col">
-      <p> Computer </p>
+      <h4> {{'features.battleship.game.pc' | translate}} </h4>
       <div class = "card-body table-responsive text-center" >
         <table class="table-cell jumbotron">
           <tr *ngFor="let cellRow of game.pccells; let i = index;">
