@@ -6,12 +6,10 @@ export interface BattleshipInstanceJSON {
   name: string;
   time: number;
   color: BattleColor;
-  columns: number;
-
 }
 
 const validator = new Validator(
-  'Instance',
+  'BattleshipInstance',
   ['id', 'name', 'time', 'color'],
   ['id', 'name', 'time', 'color']
 );
@@ -21,11 +19,9 @@ export class BattleshipInstance extends ActiveModel {
   public name: string;
   public time: number;
   public color: BattleColor;
-  public columns: number;
 
   constructor(response: BattleshipInstanceJSON) {
     super(response, validator);
-    this.columns = 10;
   }
 
   public static toJSON(model: BattleshipInstance): BattleshipInstanceJSON {

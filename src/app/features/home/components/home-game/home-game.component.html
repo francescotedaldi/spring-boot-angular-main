@@ -1,36 +1,34 @@
 <div class = "row justify-content-center">
-    <div class = "timer">
-        <p> Tempo Rimanente</p>
-        
+    <div class = "text-dark">
+        <h2> Tempo: {{this.timer}} </h2>
     </div>
-  
 </div>
 
 <div class = "row">
-    <div class = "col">
+    <div class = "col ">
         <p> Utente </p>
-        <div class = "card-body table-responsive" > 
-            <table class = "user_table"> 
-                <tr *ngFor = "let cellRow of game.usercells; let i = index;">
-                    <td *ngFor = "let cell of cellRow; let j = index;"> <!--(click)="showCellHandler(i, j)"-->
-                        <img class="cell_img"
-                     [src]="'src\assets\images\avatars\2.png'"
-                >
+        <div class = "card-body table-responsive">
+            <table class="table-cell jumbotron">
+                <tr *ngFor="let cellRow of game.usercells; let i = index;">
+                    <td *ngFor="let cell of cellRow; let j = index;">
+                      <img [src]="'../../../../../assets/images/battleship/'+this.userfrontState[i][j]+'.jpg'"
+                           class="cell-img" alt="battleship">
                     </td>
                 </tr>
-    
             </table>
-    
-
         </div>
-        
     </div>
-
     <div class = "col">
-        <p> Computer </p>
+      <p> Computer </p>
+      <div class = "card-body table-responsive text-center" >
+        <table class="table-cell jumbotron">
+          <tr *ngFor="let cellRow of game.pccells; let i = index;">
+            <td *ngFor="let cell of cellRow; let j = index;">
+              <img [src]="'../../../../../assets/images/battleship/'+this.pcfrontState[i][j]+'.jpg'"
+                   class="cell-img" alt="battleship">
+            </td>
+          </tr>
+        </table>
+      </div>
     </div>
-</div>
-
-<div class = "row justify-content-center">
-    <button>Play </button>
 </div>

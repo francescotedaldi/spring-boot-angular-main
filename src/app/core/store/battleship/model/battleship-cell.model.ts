@@ -1,22 +1,20 @@
 import { ActiveModel, Validator } from "src/app/core/model/active.model";
+import { BattleshipInstanceJSON } from "./battleship-instance.model";
 
 export interface BattleshipCellJSON {
     ship: boolean;
+}
+
+export class BattleshipCell  {
+  public ship: boolean;
+
+
+  constructor() {
+    this.ship = false;
   }
-  
-  const validator = new Validator(
-    'Battleship Cell',
-    ['ship'],
-    ['ship'],
-  );
-  
-  export class BattleshipCell extends ActiveModel {
-    public ship: boolean;
-    
-  
-    constructor(response: BattleshipCell) {
-      super(response, validator);
-    }
-  
+
+  public static toJSON(model: BattleshipCell): BattleshipCellJSON {
+    return model as BattleshipCellJSON;
   }
-  
+
+}
