@@ -9,8 +9,8 @@ export class BattleshipCell  {
   public ship: boolean;
 
 
-  constructor() {
-    this.ship = false;
+  constructor(ship : boolean) {
+    this.ship = ship;
   }
 
   public static toJSON(model: BattleshipCell): BattleshipCellJSON {

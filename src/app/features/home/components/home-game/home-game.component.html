@@ -4,9 +4,9 @@
     </div>
 </div>
 <div class = "row">
-    <div class = "col justify-content-center">
-        <h4> {{'features.battleship.game.user' | translate}} </h4>
-        <div class = "card-body table-responsive">
+    <div class = "col">
+        <h4 class="text-center"> {{'features.battleship.game.user' | translate}} </h4>
+        <div class = "card-body text-center table-responsive">
             <table class="table-cell jumbotron">
                 <tr *ngFor="let cellRow of game.usercells; let i = index;">
                     <td *ngFor="let cell of cellRow; let j = index;">
@@ -18,11 +18,11 @@
         </div>
     </div>
     <div class = "col">
-      <h4> {{'features.battleship.game.pc' | translate}} </h4>
-      <div class = "card-body table-responsive text-center" >
+      <h4 class="text-center"> {{'features.battleship.game.pc' | translate}} </h4>
+      <div class = "card-body table-responsive" >
         <table class="table-cell jumbotron">
           <tr *ngFor="let cellRow of game.pccells; let i = index;">
-            <td *ngFor="let cell of cellRow; let j = index;">
+            <td *ngFor="let cell of cellRow; let j = index;" (click)="onClick(i, j)">
               <img [src]="'../../../../../assets/images/battleship/'+this.pcfrontState[i][j]+'.jpg'"
                    class="cell-img" alt="battleship">
             </td>

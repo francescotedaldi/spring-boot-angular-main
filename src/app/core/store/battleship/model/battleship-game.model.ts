@@ -34,8 +34,18 @@ export class BattleshipGame extends ActiveModel {
       }
       for (let i = 0; i < this.getDimension(); i++) {
         for (let j = 0; j < this.getDimension(); j++) {
-          this.usercells[i][j] = new BattleshipCell();
-          this.pccells[i][j] = new BattleshipCell();
+          if (i==0 && j==0) {
+            this.usercells[i][j] = new BattleshipCell(true);
+
+          } else {
+            this.usercells[i][j] = new BattleshipCell(false);
+          }
+
+          if (i==0 && j==0) { // condizione "fatta da Riccardo" per stabilire se la cella contiene una nave o meno
+            this.pccells[i][j] = new BattleshipCell(true);
+          } else {
+            this.pccells[i][j] = new BattleshipCell(false);
+          }
         }
       }
     }

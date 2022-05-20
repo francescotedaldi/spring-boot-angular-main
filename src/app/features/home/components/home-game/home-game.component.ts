@@ -9,7 +9,7 @@ import {ANY} from '../../../../core/utils/any';
   selector: 'app-home-game',
   templateUrl: './home-game.component.html',
   styleUrls: ['./home-game.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.Default
 })
 export class HomeGameComponent implements OnInit {
 
@@ -27,13 +27,17 @@ export class HomeGameComponent implements OnInit {
   public userfrontState: string[][];
   public pcfrontState: string[][];
   public timer: number;
+  public canClick: boolean;
+  public timeoutPC: number = 2000;
+
+  public shipCellUser: [number, number][];
+  public shipCellPc: [number, number][];
 
   constructor() {
-
-
   }
 
   public ngOnInit(): void {
+    this.canClick = true;
     this.timer = this.game.instance.time;
     this.userfrontState = new Array(this.game.getDimension());
     this.pcfrontState = new Array(this.game.getDimension());
@@ -45,13 +49,42 @@ export class HomeGameComponent implements OnInit {
     for (let i = 0; i < this.game.getDimension(); i++) {
       for (let j = 0; j < this.game.getDimension(); j++) {
         this.userfrontState[i][j] = 'waves';
-        this.pcfrontState[i][j] = 'waves'
+        this.pcfrontState[i][j] = 'waves';
         index++;
       }
     }
-    this.userfrontState[7][0] = 'ship';
-    this.userfrontState[1][0] = 'missed';
   }
 
+  public onClick(i: number, j: number): void {
+    if (this.canClick === false) {
+      return;
+    }
+    this.canClick = false;
+    const cell: BattleshipCell = this.game.pccells[i][j];
 
+    if (cell.ship === true) {
+      this.pcfrontState[i][j] = 'ship';
+    } else {
+      this.pcfrontState[i][j] = 'missed';
+    }
+    setTimeout(() => { this.choisePc(); } , 2000);
+  }
+
+  public choisePc(): void {
+    // seleziona random una casella
+    const i: number = this.generateRandom(this.game.getDimension());
+    const j: number = this.generateRandom(this.game.getDimension());
+
+    const cell: BattleshipCell = this.game.usercells[i][j];
+    if (cell.ship === true) {
+      this.userfrontState[i][j] = 'ship';
+    } else {
+      this.userfrontState[i][j] = 'missed';
+    }
+    this.canClick = true;
+  }
+
+  private generateRandom(i: number): number {
+    return Math.floor(Math.round(Math.random() * 100) % i);
+  }
 }
