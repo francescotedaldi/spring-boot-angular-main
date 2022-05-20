@@ -50,6 +50,16 @@ export class HomeGameComponent implements OnInit {
       for (let j = 0; j < this.game.getDimension(); j++) {
         this.userfrontState[i][j] = 'waves';
         this.pcfrontState[i][j] = 'waves';
+        // if (this.game.pccells[i][j].ship === true) {
+        //   this.pcfrontState[i][j] = 'ship';
+        // } else {
+        //   this.pcfrontState[i][j] = 'missed';
+        // }
+        // if (this.game.usercells[i][j].ship === true) {
+        //   this.userfrontState[i][j] = 'ship';
+        // } else {
+        //   this.userfrontState[i][j] = 'missed';
+        // }
         index++;
       }
     }
