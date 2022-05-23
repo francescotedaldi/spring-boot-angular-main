@@ -66,7 +66,7 @@ export class HomeSettingsComponent implements OnInit, OnChanges {
       id: new FormControl(),
       name: new FormControl(null, Validators.required),
       color: new FormControl(null, Validators.required),
-      time: new FormControl(15, [Validators.required, Validators.min(15), Validators.max(120)]),
+      moves: new FormControl(30, [Validators.required, Validators.min(30), Validators.max(100)]),
     });
   }
 
@@ -76,7 +76,7 @@ export class HomeSettingsComponent implements OnInit, OnChanges {
         id: this.instance.id,
         name: this.instance.name,
         color: this.instance.color,
-        time: this.instance.time,
+        moves: this.instance.moves,
       });
     }
   }

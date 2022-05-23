@@ -66,6 +66,7 @@ export class BattleshipGame extends ActiveModel {
     this.setShip(this.userMatrix);
     this.setShip(this.pcMatrix);
   }
+
   public initMatrix(): void {
     this.userMatrix = [];
     this.pcMatrix = [];
@@ -80,6 +81,7 @@ export class BattleshipGame extends ActiveModel {
       }
     }
   }
+  
   public setShip(matrix: number[][]): void {
     for (let num = 0; num < 4; num++) {
      for (let len = 0; len <= num; len++) {

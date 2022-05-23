@@ -9,7 +9,7 @@ public class SettingsDto {
 
   private Long id;
   private String name;
-  private Long time;
+  private int moves;
   private BattleColor color;
 
   public Long getId() {
@@ -28,12 +28,12 @@ public class SettingsDto {
     this.name = name;
   }
 
-  public Long getTime() {
-    return time;
+  public int getMoves() {
+    return moves;
   }
 
-  public void setTime(Long time) {
-    this.time = time;
+  public void setMoves(int moves) {
+    this.moves = moves;
   }
 
   public void setColor(BattleColor color) {
@@ -49,7 +49,7 @@ public class SettingsDto {
     return new StringJoiner(", ", UserDto.class.getSimpleName() + "[", "]")
       .add("id= " + id)
       .add("name= "+ name)
-      .add("time" + time)
+      .add("moves" + moves)
       .add("color" + color)
       .toString();
   }

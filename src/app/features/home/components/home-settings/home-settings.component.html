@@ -11,7 +11,7 @@
               {{ 'features.battleship.settings.name' | translate }}
             </label>
             <input type="text" class="form-control" id="name" formControlName="name">
-            <small *ngIf="submitted && f.name.errors?.required" class="battleship-text">
+            <small *ngIf="submitted && f.name.errors?.required" class="battleship-text-error">
               {{ 'components.form.required_field' | translate }}
             </small>
           </div>
@@ -26,25 +26,25 @@
                 {{ 'components.enums.color' + color | translate }}
               </ng-option>
             </ng-select>
-            <small *ngIf="submitted && f.color.errors?.required" class="battleship-text">
+            <small *ngIf="submitted && f.color.errors?.required" class="battleship-text-error">
               {{ 'components.form.required_field' | translate }}
             </small>
           </div>
         </div>
         <div class="col">
           <div class="form-group">
-            <label class="required" for="time">
+            <label class="required" for="moves">
               {{ 'features.battleship.settings.time' | translate }}
             </label>
-            <input type="text" class="form-control" id="time" formControlName="time">
-            <small *ngIf="submitted && f.time.errors?.required" class="battleship-text">
+            <input type="moves" class="form-control" id="moves" formControlName="moves">
+            <small *ngIf="submitted && f.moves.errors?.required" class="battleship-text-error">
               {{ 'components.form.required_field' | translate }}
             </small>
-            <small *ngIf="submitted && f.time.errors?.min" class="battleship-text">
-              {{ 'components.form.min' | translate: { min: 15 } }}
+            <small *ngIf="submitted && f.moves.errors?.min" class="battleship-text-error">
+              {{ 'components.form.min' | translate: { min: 30 } }}
             </small>
-            <small *ngIf="submitted && f.time.errors?.max" class="battleship-text">
-              {{ 'components.form.max' | translate: { max: 120 } }}
+            <small *ngIf="submitted && f.moves.errors?.max" class="battleship-text-error">
+              {{ 'components.form.max' | translate: { max: 100 } }}
             </small>
           </div>
         </div>

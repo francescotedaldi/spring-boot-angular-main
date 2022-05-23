@@ -3,4 +3,4 @@ insert into "User" ("id", "email", "password", "presentation", "username", "ACCO
 insert into "User" ("id", "email", "password", "presentation", "username", "ACCOUNT_NOT_EXPIRED", "ACCOUNT_NOT_LOCKED", "CREDENTIAL_NOT_EXPIRED", "ENABLED") values (NEXTVAL('"USER_SEQ"'), 'gamer@gmail.com', '$2a$12$SR1sVc2woMOWcBpHbYDI4.TIhmVmN0utFN48gTRI8XFW17Rn88dda', 'Sono un gamer', 'gamer', true, true, true, true);
 --
 -- Instance (Settings)
-insert into "Settings" ("id", "name", "color", "time") values (NEXTVAL('"SETTINGS_SEQ"'), 'test', 'ROSSO', 15);
+insert into "Settings" ("id", "name", "color", "moves") values (NEXTVAL('"SETTINGS_SEQ"'), 'test', 'ROSSO', 60);

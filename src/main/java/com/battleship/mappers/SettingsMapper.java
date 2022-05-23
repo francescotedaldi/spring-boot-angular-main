@@ -13,7 +13,7 @@ public class SettingsMapper extends Mapper<SettingsDto, Settings> {
     SettingsDto dto = new SettingsDto();
     dto.setId(entity.getId());
     dto.setName(entity.getName());
-    dto.setTime(entity.getTime());
+    dto.setMoves(entity.getMoves());
     dto.setColor(entity.getColor());
 
     return dto;
@@ -24,7 +24,7 @@ public class SettingsMapper extends Mapper<SettingsDto, Settings> {
     Settings entity = new Settings();
     entity.setId(dto.getId());
     entity.setName(dto.getName());
-    entity.setTime(dto.getTime());
+    entity.setMoves(dto.getMoves());
     entity.setColor(dto.getColor());
 
     return entity;
@@ -33,7 +33,7 @@ public class SettingsMapper extends Mapper<SettingsDto, Settings> {
   public void mergeDtoToEntity(Settings entity, SettingsDto dto) {
     entity.setName(dto.getName());
     entity.setColor(dto.getColor());
-    entity.setTime(dto.getTime());
+    entity.setMoves(dto.getMoves());
 
   }
 

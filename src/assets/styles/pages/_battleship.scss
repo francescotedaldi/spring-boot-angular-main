@@ -72,6 +72,10 @@ main {
     color: $default-text-dark;
   }
 
+  .battleship-text-error {
+    color: $color-error;
+  }
+
   ::-webkit-scrollbar {
     background-color: $default-scrollbar-bg;
   }

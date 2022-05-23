@@ -17,7 +17,7 @@ public class Settings {
   private String name;
 
   @Column
-  private Long time;
+  private int moves;
 
   @Column(nullable = false)
   @Enumerated(EnumType.STRING)
@@ -39,12 +39,12 @@ public class Settings {
     return name;
   }
 
-  public Long getTime() {
-    return time;
+  public int getMoves() {
+    return moves;
   }
 
-  public void setTime(Long time) {
-    this.time = time;
+  public void setMoves(int moves) {
+    this.moves = moves;
   }
 
   public void setColor(BattleColor color) {

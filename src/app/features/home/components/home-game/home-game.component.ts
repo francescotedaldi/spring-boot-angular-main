@@ -38,7 +38,7 @@ export class HomeGameComponent implements OnInit {
 
   public ngOnInit(): void {
     this.canClick = true;
-    this.timer = this.game.instance.time;
+    this.timer = this.game.instance.moves;
     this.userfrontState = new Array(this.game.getDimension());
     this.pcfrontState = new Array(this.game.getDimension());
     for (let i = 0; i < this.game.getDimension(); i++) {
@@ -65,7 +65,7 @@ export class HomeGameComponent implements OnInit {
     }
   }
 
-  public onClick(i: number, j: number): void {
+  public onClick(i: number, j: number): void  {
     if (this.canClick === false) {
       return;
     }
