@@ -1,12 +1,11 @@
 import {ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {BattleshipGame} from 'src/app/core/store/battleship/model/battleship-game.model';
 import {BattleshipCell} from 'src/app/core/store/battleship/model/battleship-cell.model';
-// import {GameCategory} from '../../../../core/enums/game-category.enum';
-// import {GameType} from '../../../../core/enums/game-type.enum';
 import {BattleshipResult} from "../../../../core/store/battleship/model/battleship-result.enum";
 import {BsModalService} from "ngx-bootstrap/modal";
 import {TranslateService} from "@ngx-translate/core";
 import {ModalBattleshipComponent} from "../../../../core/components/modals/modal-battleship/modal-battleship.component";
+import {BattleColor} from "../../../../core/enums/battlecolor.enum";
 
 @Component({
   selector: 'app-home-game',
@@ -16,11 +15,6 @@ import {ModalBattleshipComponent} from "../../../../core/components/modals/modal
 })
 export class HomeGameComponent implements OnInit {
 
-  // private readonly configuration: Map<GameCategory, GameType[]> = new Map<GameCategory, GameType[]>();
-  //
-  // public categories: ANY[] = this.getEnum(GameCategory);
-  // public selectedCategory: GameCategory;
-  // public games: GameType[];
   @Input()
   public game: BattleshipGame;
 
@@ -59,8 +53,13 @@ export class HomeGameComponent implements OnInit {
     let index = 0;
     for (let i = 0; i < this.game.getDimension(); i++) {
       for (let j = 0; j < this.game.getDimension(); j++) {
-        this.userfrontState[i][j] = 'waves';
-        this.pcfrontState[i][j] = 'waves';
+        if (this.game.instance.color === BattleColor.BLU) {
+          this.userfrontState[i][j] = 'waves_blu';
+          this.pcfrontState[i][j] = 'waves_red';
+        } else {
+          this.userfrontState[i][j] = 'waves_red';
+          this.pcfrontState[i][j] = 'waves_blu';
+        }
         index++;
       }
     }
@@ -68,6 +67,12 @@ export class HomeGameComponent implements OnInit {
 
   public onClick(i: number, j: number): void  {
     if (this.canClick === false) {
+      return;
+    }
+    if (this.game.instance.color === BattleColor.BLU &&  this.pcfrontState[i][j] !== "waves_red") {
+      return;
+    }
+    if (this.game.instance.color === BattleColor.ROSSO &&  this.pcfrontState[i][j] !== "waves_blu") {
       return;
     }
     this.canClick = false;
@@ -78,14 +83,14 @@ export class HomeGameComponent implements OnInit {
       this.pcfrontState[i][j] = 'ship';
       this.pcCellHitted += 1;
       if (this.pcCellHitted === this.maxCellToHit) {
-        this.modalMessage('components.modals.lucanum.win', this.result.WIN);
+        this.modalMessage('components.modals.battleship.win', this.result.WIN);
       }
     } else {
       this.pcfrontState[i][j] = 'missed';
     }
 
     if (this.moves === 0) {
-      this.modalMessage('components.modals.lucanum.lose', this.result.LOSE);
+      this.modalMessage('components.modals.battleship.lose', this.result.LOSE);
     }
     setTimeout(() => { this.choisePc(); } , this.timeoutPC);
   }
@@ -100,7 +105,7 @@ export class HomeGameComponent implements OnInit {
       this.userfrontState[i][j] = 'ship';
       this.userCellHitted += 1;
       if (this.userCellHitted === this.maxCellToHit) {
-        this.modalMessage('components.modals.lucanum.lose', this.result.LOSE);
+        this.modalMessage('components.modals.battleship.lose', this.result.LOSE);
       }
     } else {
       this.userfrontState[i][j] = 'missed';

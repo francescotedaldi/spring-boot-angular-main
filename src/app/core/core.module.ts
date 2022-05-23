@@ -45,6 +45,7 @@ import { ModalBattleshipComponent } from './components/modals/modal-battleship/m
     ModalConfirmComponent,
     ModalAlertComponent,
     ModalAboutUsComponent,
+    ModalBattleshipComponent
   ]
 })
 export class CoreModule {

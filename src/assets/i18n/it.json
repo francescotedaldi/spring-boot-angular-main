@@ -70,6 +70,10 @@
       "aboutUs": {
         "title": "About Us",
         "text": "Battleship è un gioco sviluppato da studenti universitari totalmente alle prime armi. Il gruppo è formato da: Antonio Serra, Riccardo Pacello, Francesco Tedaldi"
+      },
+      "battleship": {
+        "win": "Hai vinto!",
+        "lose": "Hai perso!"
       }
     },
     "enums": {
@@ -101,7 +105,7 @@
         "title": "Configurazione",
         "name": "Nome",
         "color": "Colore",
-        "time": "Tempo",
+        "moves": "Mosse",
         "delete_message": "Vuoi eliminare la configurazione?"
       },
       "game": {
