@@ -1,9 +1,12 @@
 import {ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import { BattleshipGame } from 'src/app/core/store/battleship/model/battleship-game.model';
-import { BattleshipCell } from 'src/app/core/store/battleship/model/battleship-cell.model';
+import {BattleshipGame} from 'src/app/core/store/battleship/model/battleship-game.model';
+import {BattleshipCell} from 'src/app/core/store/battleship/model/battleship-cell.model';
 // import {GameCategory} from '../../../../core/enums/game-category.enum';
 // import {GameType} from '../../../../core/enums/game-type.enum';
-import {ANY} from '../../../../core/utils/any';
+import {BattleshipResult} from "../../../../core/store/battleship/model/battleship-result.enum";
+import {BsModalService} from "ngx-bootstrap/modal";
+import {TranslateService} from "@ngx-translate/core";
+import {ModalBattleshipComponent} from "../../../../core/components/modals/modal-battleship/modal-battleship.component";
 
 @Component({
   selector: 'app-home-game',
@@ -26,19 +29,27 @@ export class HomeGameComponent implements OnInit {
 
   public userfrontState: string[][];
   public pcfrontState: string[][];
-  public timer: number;
+  public moves: number;
   public canClick: boolean;
-  public timeoutPC: number = 2000;
+  public timeoutPC: number = 0;
 
-  public shipCellUser: [number, number][];
-  public shipCellPc: [number, number][];
+  public result: typeof  BattleshipResult = BattleshipResult;
+  public userCellHitted: number;
+  public pcCellHitted: number;
+  public maxCellToHit: number;
 
-  constructor() {
+  constructor(
+    public readonly modalService: BsModalService,
+    public readonly translateService: TranslateService
+  ) {
   }
 
   public ngOnInit(): void {
     this.canClick = true;
-    this.timer = this.game.instance.moves;
+    this.userCellHitted = 0;
+    this.pcCellHitted = 0;
+    this.maxCellToHit = 30;
+    this.moves = this.game.instance.moves;
     this.userfrontState = new Array(this.game.getDimension());
     this.pcfrontState = new Array(this.game.getDimension());
     for (let i = 0; i < this.game.getDimension(); i++) {
@@ -50,16 +61,6 @@ export class HomeGameComponent implements OnInit {
       for (let j = 0; j < this.game.getDimension(); j++) {
         this.userfrontState[i][j] = 'waves';
         this.pcfrontState[i][j] = 'waves';
-        // if (this.game.pccells[i][j].ship === true) {
-        //   this.pcfrontState[i][j] = 'ship';
-        // } else {
-        //   this.pcfrontState[i][j] = 'missed';
-        // }
-        // if (this.game.usercells[i][j].ship === true) {
-        //   this.userfrontState[i][j] = 'ship';
-        // } else {
-        //   this.userfrontState[i][j] = 'missed';
-        // }
         index++;
       }
     }
@@ -72,12 +73,21 @@ export class HomeGameComponent implements OnInit {
     this.canClick = false;
     const cell: BattleshipCell = this.game.pccells[i][j];
 
+    this.moves -= 1;
     if (cell.ship === true) {
       this.pcfrontState[i][j] = 'ship';
+      this.pcCellHitted += 1;
+      if (this.pcCellHitted === this.maxCellToHit) {
+        this.modalMessage('components.modals.lucanum.win', this.result.WIN);
+      }
     } else {
       this.pcfrontState[i][j] = 'missed';
     }
-    setTimeout(() => { this.choisePc(); } , 2000);
+
+    if (this.moves === 0) {
+      this.modalMessage('components.modals.lucanum.lose', this.result.LOSE);
+    }
+    setTimeout(() => { this.choisePc(); } , this.timeoutPC);
   }
 
   public choisePc(): void {
@@ -88,6 +98,10 @@ export class HomeGameComponent implements OnInit {
     const cell: BattleshipCell = this.game.usercells[i][j];
     if (cell.ship === true) {
       this.userfrontState[i][j] = 'ship';
+      this.userCellHitted += 1;
+      if (this.userCellHitted === this.maxCellToHit) {
+        this.modalMessage('components.modals.lucanum.lose', this.result.LOSE);
+      }
     } else {
       this.userfrontState[i][j] = 'missed';
     }
@@ -96,5 +110,16 @@ export class HomeGameComponent implements OnInit {
 
   private generateRandom(i: number): number {
     return Math.floor(Math.round(Math.random() * 100) % i);
+  }
+  private modalMessage(title: string, result: BattleshipResult): void {
+    const currentTitle = this.translateService.instant(title);
+    const currentResult = this.translateService.instant(result);
+    const initialState = { title: currentTitle, result: currentResult };
+    const bsModalRef = this.modalService.show(ModalBattleshipComponent, {
+      initialState
+    });
+    bsModalRef.content.onClose.subscribe(() => {
+      this.back.emit();
+    });
   }
 }

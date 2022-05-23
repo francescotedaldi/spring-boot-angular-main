@@ -10,6 +10,7 @@ import {ModalAlertComponent} from './components/modals/modal-alert/modal-alert.c
 import {ModalConfirmComponent} from './components/modals/modal-confirm/modal-confirm.component';
 import {IsLoggedDirective} from './directives/is-logged.directive';
 import { ModalAboutUsComponent } from './components/modals/modal-about-us/modal-about-us.component';
+import { ModalBattleshipComponent } from './components/modals/modal-battleship/modal-battleship.component';
 // import {MmssPipe} from './pipe/mmss.pipe';
 
 @NgModule({
@@ -21,6 +22,7 @@ import { ModalAboutUsComponent } from './components/modals/modal-about-us/modal-
     ModalAlertComponent,
     ModalConfirmComponent,
     ModalAboutUsComponent,
+    ModalBattleshipComponent,
     // MmssPipe
   ],
   imports: [

@@ -1,0 +1,10 @@
+<div class="modal-body">
+  <button type="button" class="close pull-right" aria-label="Close" (click)="bsModalRef.hide()">
+    <span aria-hidden="true">x</span>
+  </button>
+  <h2 class="text-center">{{ title }}</h2>
+  <div [ngSwitch]="result">
+    <img *ngSwitchCase="results.WIN" src="assets/images/battleship/you_win.jpg" alt="winner">
+    <img *ngSwitchCase="results.LOSE" src="assets/images/battleship/you_lose.jpg" alt="loser">
+  </div>
+</div>
