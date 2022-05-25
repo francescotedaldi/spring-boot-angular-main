@@ -3,14 +3,14 @@
         <h2> {{'features.battleship.game.moves' | translate}} {{this.moves}} </h2>
     </div>
 </div>
-<div class = "row">
+<div class = "row ">
     <div class = "col">
         <h4 class="text-center"> {{'features.battleship.game.user' | translate}} </h4>
         <div class = "card-body text-center table-responsive">
             <table class="table-cell jumbotron">
                 <tr *ngFor="let cellRow of game.usercells; let i = index;">
                     <td *ngFor="let cell of cellRow; let j = index;">
-                      <img [src]="'../../../../../assets/images/battleship/'+this.userfrontState[i][j]+'.jpg'"
+                      <img [@battleship-cell-animation]="this.userbackState[i][j]" [src]="'../../../../../assets/images/battleship/'+this.userfrontState[i][j]+'.jpg'"
                            class="cell-img" alt="battleship">
                     </td>
                 </tr>
@@ -23,7 +23,7 @@
         <table class="table-cell jumbotron">
           <tr *ngFor="let cellRow of game.pccells; let i = index;">
             <td *ngFor="let cell of cellRow; let j = index;" (click)="onClick(i, j)">
-              <img [src]="'../../../../../assets/images/battleship/'+this.pcfrontState[i][j]+'.jpg'"
+              <img [@battleship-cell-animation]="this.pcbackState[i][j]" [src]="'../../../../../assets/images/battleship/'+this.pcfrontState[i][j]+'.jpg'"
                    class="cell-img" alt="battleship">
             </td>
           </tr>

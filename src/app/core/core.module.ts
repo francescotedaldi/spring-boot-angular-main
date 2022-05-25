@@ -11,7 +11,6 @@ import {ModalConfirmComponent} from './components/modals/modal-confirm/modal-con
 import {IsLoggedDirective} from './directives/is-logged.directive';
 import { ModalAboutUsComponent } from './components/modals/modal-about-us/modal-about-us.component';
 import { ModalBattleshipComponent } from './components/modals/modal-battleship/modal-battleship.component';
-// import {MmssPipe} from './pipe/mmss.pipe';
 
 @NgModule({
   declarations: [
@@ -22,8 +21,7 @@ import { ModalBattleshipComponent } from './components/modals/modal-battleship/m
     ModalAlertComponent,
     ModalConfirmComponent,
     ModalAboutUsComponent,
-    ModalBattleshipComponent,
-    // MmssPipe
+    ModalBattleshipComponent
   ],
   imports: [
     CommonModule,
@@ -38,8 +36,7 @@ import { ModalBattleshipComponent } from './components/modals/modal-battleship/m
     AckComponent,
     IsLoggedDirective,
     ModalAlertComponent,
-    ModalAboutUsComponent,
-    // MmssPipe
+    ModalAboutUsComponent
   ],
   entryComponents: [
     ModalConfirmComponent,

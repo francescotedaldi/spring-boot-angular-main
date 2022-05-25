@@ -6,12 +6,15 @@ import {BsModalService} from "ngx-bootstrap/modal";
 import {TranslateService} from "@ngx-translate/core";
 import {ModalBattleshipComponent} from "../../../../core/components/modals/modal-battleship/modal-battleship.component";
 import {BattleColor} from "../../../../core/enums/battlecolor.enum";
+import {BattleshipCellState} from "../../../../core/store/battleship/model/battleship-cell-state.enum";
+import {BattleshipCellAnimation} from "../../../../core/animations/battleship-cell-animation";
 
 @Component({
   selector: 'app-home-game',
   templateUrl: './home-game.component.html',
   styleUrls: ['./home-game.component.scss'],
-  changeDetection: ChangeDetectionStrategy.Default
+  changeDetection: ChangeDetectionStrategy.Default,
+  animations: [BattleshipCellAnimation]
 })
 export class HomeGameComponent implements OnInit {
 
@@ -23,14 +26,18 @@ export class HomeGameComponent implements OnInit {
 
   public userfrontState: string[][];
   public pcfrontState: string[][];
+  public userbackState: BattleshipCellState[][];
+  public pcbackState: BattleshipCellState[][];
   public moves: number;
   public canClick: boolean;
-  public timeoutPC: number = 0;
+  public timeoutPC: number = 2000;
 
   public result: typeof  BattleshipResult = BattleshipResult;
   public userCellHitted: number;
   public pcCellHitted: number;
   public maxCellToHit: number;
+
+  public list: Set<[number, number]>;
 
   constructor(
     public readonly modalService: BsModalService,
@@ -39,6 +46,7 @@ export class HomeGameComponent implements OnInit {
   }
 
   public ngOnInit(): void {
+    this.list = new Set<[number, number]>();
     this.canClick = true;
     this.userCellHitted = 0;
     this.pcCellHitted = 0;
@@ -46,9 +54,14 @@ export class HomeGameComponent implements OnInit {
     this.moves = this.game.instance.moves;
     this.userfrontState = new Array(this.game.getDimension());
     this.pcfrontState = new Array(this.game.getDimension());
+    this.pcbackState = new Array(this.game.getDimension());
+    this.userbackState = new Array(this.game.getDimension());
+
     for (let i = 0; i < this.game.getDimension(); i++) {
       this.userfrontState[i] = new Array(this.game.getDimension());
       this.pcfrontState[i] = new Array(this.game.getDimension());
+      this.pcbackState[i] = new Array((this.game.getDimension()));
+      this.userbackState[i] = new Array((this.game.getDimension()));
     }
     let index = 0;
     for (let i = 0; i < this.game.getDimension(); i++) {
@@ -60,6 +73,8 @@ export class HomeGameComponent implements OnInit {
           this.userfrontState[i][j] = 'waves_red';
           this.pcfrontState[i][j] = 'waves_blu';
         }
+        this.pcbackState[i][j] = BattleshipCellState.COVERED;
+        this.userbackState[i][j] = BattleshipCellState.COVERED;
         index++;
       }
     }
@@ -89,6 +104,8 @@ export class HomeGameComponent implements OnInit {
       this.pcfrontState[i][j] = 'missed';
     }
 
+    this.pcbackState[i][j] = BattleshipCellState.VISIBLE;
+
     if (this.moves === 0) {
       this.modalMessage('components.modals.battleship.lose', this.result.LOSE);
     }
@@ -97,22 +114,71 @@ export class HomeGameComponent implements OnInit {
 
   public choisePc(): void {
     // seleziona random una casella
-    const i: number = this.generateRandom(this.game.getDimension());
-    const j: number = this.generateRandom(this.game.getDimension());
+    let i: number;
+    let j: number;
+    if (this.list.size === 0) {
+      i = this.generateRandom(this.game.getDimension());
+      j = this.generateRandom(this.game.getDimension());
+    } else  {
+      const iterator1 = this.list[Symbol.iterator]();
+      const pippo = iterator1.next();
+      i = pippo.value[0];
+      j = pippo.value[1];
+      this.list.forEach((point) => {
+        if (point[0] === i && point[1] === j) {
+          this.list.delete(point);
+        }
+      });
+    }
+
+    if (this.game.instance.color === BattleColor.BLU &&  this.userfrontState[i][j] !== "waves_blu") {
+      this.choisePc();
+    }
+    if (this.game.instance.color === BattleColor.ROSSO &&  this.userfrontState[i][j] !== "waves_red") {
+      this.choisePc();
+    }
 
     const cell: BattleshipCell = this.game.usercells[i][j];
     if (cell.ship === true) {
       this.userfrontState[i][j] = 'ship';
       this.userCellHitted += 1;
+      this.listAux(i, j);
       if (this.userCellHitted === this.maxCellToHit) {
         this.modalMessage('components.modals.battleship.lose', this.result.LOSE);
       }
     } else {
       this.userfrontState[i][j] = 'missed';
     }
+    this.userbackState[i][j] = BattleshipCellState.VISIBLE;
     this.canClick = true;
   }
 
+  private listAux(i: number, j: number): void {
+    if (i > 0) {
+      if (this.game.instance.color === BattleColor.ROSSO && this.userfrontState[i - 1][j] === "waves_red" ||
+        this.game.instance.color === BattleColor.BLU && this.userfrontState[i - 1][j] === "waves_blu") {
+        this.list.add([i - 1, j]);
+      }
+    }
+    if (i < 9) {
+      if (this.game.instance.color === BattleColor.ROSSO && this.userfrontState[i+1][j] === "waves_red" ||
+        this.game.instance.color === BattleColor.BLU && this.userfrontState[i+1][j] === "waves_blu") {
+          this.list.add([i + 1, j]);
+      }
+    }
+    if (j > 0) {
+      if (this.game.instance.color === BattleColor.ROSSO && this.userfrontState[i][j - 1] === "waves_red" ||
+        this.game.instance.color === BattleColor.BLU && this.userfrontState[i][j - 1] === "waves_blu") {
+          this.list.add([i, j - 1]);
+      }
+    }
+    if (j < 9) {
+      if (this.game.instance.color === BattleColor.ROSSO && this.userfrontState[i][j+1] === "waves_red" ||
+        this.game.instance.color === BattleColor.BLU && this.userfrontState[i][j+1] === "waves_blu") {
+          this.list.add([i, j + 1]);
+      }
+    }
+  }
   private generateRandom(i: number): number {
     return Math.floor(Math.round(Math.random() * 100) % i);
   }
