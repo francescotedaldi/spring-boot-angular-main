@@ -1,11 +1,9 @@
-<div class = "row justify-content-center">
-    <div class = "text-dark">
-        <h2> {{'features.battleship.game.moves' | translate}} {{this.moves}} </h2>
-    </div>
-</div>
 <div class = "row ">
-    <div class = "col">
-        <h4 class="text-center"> {{'features.battleship.game.user' | translate}} </h4>
+  <div class = "col mt-4">
+        <h4 class="row jumbotron-fluid justify-content-center">
+          {{'features.battleship.game.user' | translate}}
+          <img [src]="'../../../../../assets/images/avatars/'+this.avatarUser+'.png'" alt="card" class="ml-4 cell-img">
+        </h4>
         <div class = "card-body text-center table-responsive">
             <table class="table-cell jumbotron">
                 <tr *ngFor="let cellRow of game.usercells; let i = index;">
@@ -17,8 +15,16 @@
             </table>
         </div>
     </div>
-    <div class = "col">
-      <h4 class="text-center"> {{'features.battleship.game.pc' | translate}} </h4>
+  <div class = "col mt-3 text-dark text-center">
+    <h1 class="jumbotron-fluid">
+      <i class="fa fa-clock-o text-dark"></i> {{this.moves}}
+    </h1>
+  </div>
+  <div class = "col mt-4">
+      <h4 class="row jumbotron-fluid justify-content-center">
+        <img [src]="'../../../../../assets/images/avatars/'+this.avatarPc+'.png'" alt="card" class="mr-4 cell-img">
+        {{'features.battleship.game.pc' | translate}}
+      </h4>
       <div class = "card-body table-responsive" >
         <table class="table-cell jumbotron">
           <tr *ngFor="let cellRow of game.pccells; let i = index;">

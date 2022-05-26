@@ -41,21 +41,13 @@
         },
         "text": "Ingegneria Informatica ed Automatica - Sapienza Università di Roma",
         "social": {
-          "facebook": {
-            "url": "https://www.facebook.com/",
-            "title": "Facebook"
+          "link": {
+            "url": "https://github.com/francescotedaldi/spring-boot-angular-main",
+            "title": "Github"
           },
-          "twitter": {
-            "url": "https://twitter.com/",
-            "title": "Twitter"
-          },
-          "pinterest": {
-            "url": "https://it.pinterest.com/",
-            "title": "Pinterest"
-          },
-          "linkedin": {
-            "url": "https://www.linkedin.com/",
-            "title": "LinkedIn"
+          "university": {
+            "url": "https://www.uniroma1.it/it/",
+            "title": "Sapienza"
           }
         }
       }

@@ -31,6 +31,8 @@ export class HomeGameComponent implements OnInit {
   public moves: number;
   public canClick: boolean;
   public timeoutPC: number = 2000;
+  public avatarUser: number;
+  public avatarPc: number;
 
   public result: typeof  BattleshipResult = BattleshipResult;
   public userCellHitted: number;
@@ -46,6 +48,11 @@ export class HomeGameComponent implements OnInit {
   }
 
   public ngOnInit(): void {
+    this.avatarPc = this.generateRandom(50) + 1;
+    this.avatarUser = this.generateRandom(50) + 1;
+    while (this.avatarUser === this.avatarPc) {
+      this.avatarUser = this.generateRandom(50) + 1;
+    }
     this.list = new Set<[number, number]>();
     this.canClick = true;
     this.userCellHitted = 0;

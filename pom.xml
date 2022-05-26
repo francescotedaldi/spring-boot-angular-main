@@ -9,7 +9,7 @@
 		<version>2.4.2</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>it.jpanik</groupId>
+	<groupId>com.battleship</groupId>
 	<artifactId>battleship</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
