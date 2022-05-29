@@ -3,6 +3,7 @@ import {AbstractControl, FormControl, FormGroup, Validators} from '@angular/form
 import {Router} from '@angular/router';
 import {Store} from '@ngrx/store';
 import {AppState} from '../../../app-state';
+import {Role} from '../../../core/enums/role.enum';
 import {User} from '../../../core/store/user/model/user.model';
 import * as UserActions from '../../../core/store/user/user.actions';
 import {dontWaitFor} from '../../../core/utils/dont-wait-for.service';
@@ -39,7 +40,7 @@ export class SignupComponent implements OnInit {
     this.submitted = true;
 
     if (this.form.valid) {
-      const user = { ...this.form.value as User };
+      const user = { ...this.form.value as User, role: Role.GAMER };
       this.store.dispatch(UserActions.saveUser({user }));
       dontWaitFor(this.router.navigate(['']));
     }

@@ -1,0 +1,54 @@
+@import "src/assets/styles/_palette-battleship.scss";
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  grid-template-areas: "user moves pc";
+
+  background: $battleship-game-bg;
+  border-radius: 20px;
+
+  .cell-img{
+    height: 40px;
+    width: 40px;
+  }
+
+  .table_cell {
+    position: relative;
+    margin: 0 auto;
+  }
+
+  .mytable {
+    align-content: center;
+  }
+
+  .user {
+    grid-area: user;
+    position: center;
+  }
+
+  .moves {
+    text-align: center;
+    grid-area: moves;
+  }
+
+  .pc {
+    grid-area: pc;
+    text-align: center;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .container {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 0.3fr 1fr;
+    grid-template-areas: "user" "moves" "pc";
+
+    .cell-img{
+      height: 100%;
+      width: 100%;
+    }
+  }
+}
+

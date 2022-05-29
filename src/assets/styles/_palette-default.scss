@@ -2,8 +2,8 @@
 $color-error: red;
 $color-error-shadow: rgba(255, 0, 0, 0.25);
 
-$color-1: #0800ff;
-$color-2: #3dc7cc;
+$color-1: #802433;
+$color-2: gray;
 $color-3: #fff;
 
 $default-required: $color-1;
@@ -19,26 +19,12 @@ $default-button-text: $color-3;
 $default-button-border: $color-1;
 $default-button-bg-hover: $color-3;
 $default-button-text-hover: $color-1;
-$default-button-border-hover: $color-2;
-$default-button-bg-selected: $color-1;
-$default-button-text-selected: $color-1;
-$default-button-border-selected: $color-3;
+$default-button-border-hover: $color-1;
+$default-button-bg-selected: $color-2;
+$default-button-text-selected: $color-3;
+$default-button-border-selected: $color-2;
 $default-scrollbar-bg: $color-2;
 $default-scrollbar-bg-active: $color-1;
-$default-toast-text: #f8d7da;
+$default-toast-text: #343A40;
 $default-toast-error-bg: #f8d7da;
 $default-toast-error-border: #f5c6cb;
-
-$default-page-bg: radial-gradient(circle, $color-3 0%, $color-2 50%, $color-1 100%);
-$default-footer-bg: $color-1;
-$default-footer-text: $color-1;
-$default-form-focus-shadow: $color-2;
-$default-card-header-bg: $color-2;
-$default-card-header-text: $color-3;
-$default-card-body-text: $color-1;
-$default-card-footer-bg: $color-2;
-$default-card-footer-text: $color-1;
-$default-text: $color-3;
-$default-text-dark: $color-1;
-$default-scrollbar-shadow: $color-1;
-$default-scrollbar-shadow: $color-1;

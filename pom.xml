@@ -9,12 +9,12 @@
 		<version>2.4.2</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.battleship</groupId>
-	<artifactId>battleship</artifactId>
+	<groupId>it.sapienza</groupId>
+	<artifactId>gaming</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
-	<name>battleship</name>
-	<description>battleship</description>
+	<name>sapienzaGaming</name>
+	<description>sapienzaGaming</description>
 
 	<properties>
 		<java.version>11</java.version>
@@ -100,7 +100,7 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<version>2.4.3</version>
 				<configuration>
-					<mainClass>com.battleship.BattleshipApplication</mainClass>
+					<mainClass>it.sapienza.gaming.SapienzaGamingApplication</mainClass>
 				</configuration>
 				<executions>
 					<execution>

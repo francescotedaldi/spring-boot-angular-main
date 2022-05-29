@@ -1,0 +1,26 @@
+<div class="card card-rank">
+  <div class="card-header text-center">
+    {{ 'components.layout.rank.title' | translate }}
+  </div>
+  <div class="card-body">
+    <div class="jumbotron text-center" *ngIf="!ranks.length">
+      {{ 'components.layout.rank.no_users' | translate }}
+    </div>
+    <table class="table table-sm" *ngIf="ranks.length">
+      <thead>
+      <tr>
+        <th class="text-center" scope="col">{{ 'components.layout.rank.index' | translate }}</th>
+        <th scope="col" >{{ 'components.layout.rank.username' | translate }}</th>
+        <th scope="col" class="text-center">{{ 'components.layout.rank.score' | translate }}</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let rank of ranks; let i = index">
+        <td class="text-center" scope="row">{{ i + 1 }}</td>
+        <td>{{ rank.username }}</td>
+        <td class="text-center">{{ rank.score }}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

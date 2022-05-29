@@ -1,0 +1,35 @@
+<div class="container">
+  <div id="user" class="user mt-3">
+    <h4 class="text-center"> {{'features.battleship.game.user' | translate}} </h4>
+    <div class = "card-body table-responsive ">
+      <table class="table-cell jumbotron ">
+        <tr *ngFor="let cellRow of game.usercells; let i = index;">
+          <td *ngFor="let cell of cellRow; let j = index;">
+            <img [@battleship-cell-animation]="this.userbackState[i][j]" [src]="'../../../../../assets/images/games/battleship/'+this.userfrontState[i][j]+'.jpg'"
+                 class="cell-img" alt="battleship">
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div id="moves" class="moves mt-3">
+    <h2>
+      <i class="fa fa-clock-o text-dark"></i>
+      {{this.moves}}
+    </h2>
+  </div>
+  <div id="pc" class="pc mt-3">
+    <h4 class="text-center"> {{'features.battleship.game.pc' | translate}} </h4>
+    <div class = "card-body table-responsive" >
+      <table class="table-cell jumbotron">
+        <tr *ngFor="let cellRow of game.pccells; let i = index;">
+          <td *ngFor="let cell of cellRow; let j = index;" (click)="onClick(i, j)">
+            <img [@battleship-cell-animation]="this.pcbackState[i][j]" [src]="'../../../../../assets/images/games/battleship/'+this.pcfrontState[i][j]+'.jpg'"
+                 class="cell-img" alt="battleship">
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+

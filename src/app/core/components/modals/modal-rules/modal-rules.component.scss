@@ -1,0 +1,27 @@
+@import "src/assets/styles/palette-battleship";
+
+.modal-header {
+  //border-top-right-radius: 2px;
+  //border-top-left-radius: 2px;
+
+  button {
+    //color: $text;
+    //background-color: transparent;
+    //border-color: transparent;
+    //font-size: 25px;
+  }
+
+  &.battleship {
+    background: $battleship-modal-rules-bg;
+    color: $battleship-modal-rules-text;
+
+    button.close {
+      color: $battleship-modal-rules-text;
+    }
+  }
+
+}
+
+.modal-body {
+  overflow: auto;
+}

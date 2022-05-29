@@ -1,8 +1,7 @@
 @import 'palette-default';
+@import 'palette-battleship';
 
 @import 'mixins/mixins';
-
-@import 'pages/battleship';
 
 @import "layout/layout";
 
@@ -20,3 +19,4 @@
 
 @import "bootstrap/bootstrap";
 
+@import "src/assets/styles/pages/battleship";

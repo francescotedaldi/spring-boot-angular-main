@@ -11,7 +11,7 @@ describe('workspace-project App', () => {
 
   it('should display welcome message', () => {
     dontWaitFor(page.navigateTo());
-    dontWaitFor(expect(page.getTitleText()).toEqual('battleship app is running!'));
+    dontWaitFor(expect(page.getTitleText()).toEqual('jgaming app is running!'));
   });
 
   afterEach(async () => {

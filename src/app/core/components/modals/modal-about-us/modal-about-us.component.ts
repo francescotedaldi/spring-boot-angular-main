@@ -1,6 +1,6 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {Subject} from "rxjs";
-import {BsModalRef} from "ngx-bootstrap/modal";
+import {BsModalRef} from 'ngx-bootstrap/modal';
+import {Subject} from 'rxjs';
 
 @Component({
   selector: 'app-modal-about-us',

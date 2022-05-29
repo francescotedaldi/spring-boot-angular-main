@@ -1,12 +1,17 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-// import {AuthGuard} from './core/guards/auth.guard';
+import {AuthGuard} from './core/guards/auth.guard';
 import {MODULE} from './core/utils/any';
 
 const APP_ROUTER: Routes = [
   {
     path: '',
     loadChildren: () => import('./features/home/home.module').then((m: MODULE) => m.HomeModule),
+  },
+  {
+    path: 'battleship',
+    loadChildren: () => import('./features/battleship/battleship.module').then((m: MODULE) => m.BattleshipModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'signup',

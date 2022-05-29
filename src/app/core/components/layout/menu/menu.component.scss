@@ -1,11 +1,21 @@
 @import "../../../../../assets/styles/palette-default";
 
 .menu {
+
+  display: grid;
+  grid-template-columns: 0.5fr 0.5fr 1fr ;
+  grid-template-rows: 1fr;
+  grid-template-areas: "img strong btn";
+
   background: $default-menu-bg;
   color: $default-menu-text;
 
   img {
     width: 40px;
+    grid-area: img;
+  }
+  strong {
+    grid-area: strong;
   }
 
   a {
@@ -15,9 +25,14 @@
     padding: 10px;
     left: 5px;
 
+
     &.btn {
       line-height: 10px;
     }
+  }
+
+  ul {
+    grid-area: btn;
   }
 
   .navbar-brand {
@@ -27,9 +42,68 @@
   }
 
   .navbar-nav {
+    justify-content: end;
     .nav-item {
       .nav-link {
         color: $default-menu-text;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 1060px) {
+  .menu {
+
+    display: block;
+    grid-template-columns: 1fr ;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: "title" "btn";
+
+    background: $default-menu-bg;
+    color: $default-menu-text;
+
+    img {
+      width: 40px;
+      grid-area: img;
+    }
+
+    strong {
+      text-align: center;
+      grid-area: strong;
+    }
+
+    a {
+      text-decoration: none;
+      font-size: 20px;
+      cursor: pointer;
+      padding: 10px;
+      left: 5px;
+
+      grid-area: title;
+
+
+      &.btn {
+        line-height: 10px;
+      }
+    }
+
+    ul {
+      grid-area: btn;
+    }
+
+    .navbar-brand {
+
+      color: $default-menu-text;
+      letter-spacing: 5px;
+      font-size: 27px;
+    }
+
+    .navbar-nav {
+      justify-content: center;
+      .nav-item {
+        .nav-link {
+          color: $default-menu-text;
+        }
       }
     }
   }

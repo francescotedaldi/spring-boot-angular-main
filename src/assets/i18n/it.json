@@ -4,7 +4,8 @@
       "required_field": "Campo Obbligatorio",
       "invalid_field": "Campo Invalido",
       "min": "Il minimo è {{min}}",
-      "max": "Il massimo è {{max}}"
+      "max": "Il massimo è {{max}}",
+      "pair_number": "Inserire un numero paro (es. 2, 10, 22)"
     },
     "buttons": {
       "rules": "Regole del Gioco",
@@ -21,15 +22,13 @@
     },
     "layout": {
       "menu": {
-        "title": "Battleship",
+        "title": "SapienzaGaming",
         "signup": "Registrati",
-        "contacts": "Contattaci",
-        "about_us": "About Us",
         "logout": "Logout",
         "home": "Home",
+        "about_us": "About Us",
         "flags": {
-          "it": "Italiano",
-          "en": "Inglese"
+          "it": "Italiano"
         }
       },
       "footer": {
@@ -39,7 +38,7 @@
           "privacy": "Privacy",
           "policy": "Policy"
         },
-        "text": "Ingegneria Informatica ed Automatica - Sapienza Università di Roma",
+        "text": "Sapienza - Università di Roma",
         "social": {
           "link": {
             "url": "https://github.com/francescotedaldi/spring-boot-angular-main",
@@ -49,46 +48,51 @@
             "url": "https://www.uniroma1.it/it/",
             "title": "Sapienza"
           }
+
         }
+      },
+      "rank": {
+        "index": "#",
+        "username": "Username",
+        "score": "Punteggio",
+        "title": "Classifica",
+        "no_users": "Nessun giocatore in classifica"
       }
-    },
-    "loader": {
-      "text": "Caricamento"
     },
     "modals": {
       "confirm": {
         "title": "Sei sicuro?"
       },
-      "aboutUs": {
-        "title": "About Us",
-        "text": "Battleship è un gioco sviluppato da studenti universitari totalmente alle prime armi. Il gruppo è formato da: Antonio Serra, Riccardo Pacello, Francesco Tedaldi"
+      "rules": {
+        "title": "Regole del gioco"
       },
       "battleship": {
         "win": "Hai vinto!",
         "lose": "Hai perso!"
+      },
+      "aboutUs": {
+        "title": "About Us",
+        "text": "SapienzaGaming è una piattaforma sviluppata da Antonio Serra, Riccardo Paciello, Francesco Tedaldi"
+
       }
     },
     "enums": {
-      "colorROSSO": "ROSSO",
-      "colorBLU": "BLU"
+      "victory_points_ONE": "1",
+      "victory_points_THREE": "3",
+      "victory_points_FIVE": "5"
     }
   },
   "features": {
     "home": {
       "login": {
-        "text": "<strong class=\"text-theme\">Battleship</strong> &egrave; un gioco online sviluppato totalmente da studenti universitari alle prime armi.<hr><strong>Accedi</strong> o <strong>registrati</strong> per iniziare a divertirti con noi!",
+        "text": "<strong class=\"text-theme\">SapienzaGaming</strong> &egrave; una piattaforma di giochi online sviluppata totalmente da studenti universitari alle prime armi.<hr><strong>Accedi</strong> o <strong>registrati</strong> per iniziare a divertirti con noi!",
         "username": "Username",
         "password": "Password"
       }
     },
-    "signup": {
-      "title": "Registrati",
-      "username": "Username",
-      "email": "Email",
-      "password": "Password",
-      "presentation": "Presentazione"
-    },
     "battleship": {
+      "footer_university": "Sapienza - Università di Roma",
+      "footer_user": "F. Tedaldi, R. Paciello, A. Serra",
       "lobby": {
         "title": "Lobby",
         "no_instances": "Nessuna istanza"
@@ -98,13 +102,21 @@
         "name": "Nome",
         "color": "Colore",
         "moves": "Mosse",
-        "delete_message": "Vuoi eliminare la configurazione?"
+        "delete_message": "Vuoi eliminare la configurazione?",
+        "rules": "Il gioco è la classica sfida a Battaglia Navale. Cerca di affondare tutte le navi dell'avversario nel numero di mosse stabilito se vuoi vincere la partita!"
       },
       "game": {
         "moves": "Mosse residue:",
         "user": "Utente",
         "pc": "Computer"
       }
+    },
+    "signup": {
+      "title": "Registrati",
+      "username": "Username",
+      "email": "Email",
+      "password": "Password",
+      "presentation": "Presentazione"
     }
   }
 }

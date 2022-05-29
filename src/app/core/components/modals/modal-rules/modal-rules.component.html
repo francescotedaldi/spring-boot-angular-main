@@ -1,0 +1,11 @@
+<div class="modal-header" [ngClass]="currentGameType.toLowerCase()">
+  <h4 class="modal-title">{{'components.modals.rules.title'|translate}}</h4>
+  <button type="button" class="close" aria-label="Close" (click)="bsModalRef.hide()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <div [ngSwitch]="currentGameType">
+    <div *ngSwitchCase="gameTypes.BATTLESHIP">{{'features.battleship.settings.rules' | translate}}</div>
+  </div>
+</div>

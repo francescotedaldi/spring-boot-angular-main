@@ -30,7 +30,7 @@ export function HttpLoaderFactory(httpBackend: HttpBackend): TranslateHttpLoader
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,

@@ -1,39 +1,28 @@
-<div class = "row ">
-  <div class = "col mt-4">
-        <h4 class="row jumbotron-fluid justify-content-center">
-          {{'features.battleship.game.user' | translate}}
-          <img [src]="'../../../../../assets/images/avatars/'+this.avatarUser+'.png'" alt="card" class="ml-4 cell-img">
-        </h4>
-        <div class = "card-body text-center table-responsive">
-            <table class="table-cell jumbotron">
-                <tr *ngFor="let cellRow of game.usercells; let i = index;">
-                    <td *ngFor="let cell of cellRow; let j = index;">
-                      <img [@battleship-cell-animation]="this.userbackState[i][j]" [src]="'../../../../../assets/images/battleship/'+this.userfrontState[i][j]+'.jpg'"
-                           class="cell-img" alt="battleship">
-                    </td>
-                </tr>
-            </table>
+<div id="container">
+  <div class="container-fluid">
+    <div class="row mt-3 text-center">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-body">
+            <button type="button" class="btn btn-custom mr-2"
+                    *ngFor="let category of categories"
+                    (click)="filterHandler(category)"
+                    [ngClass]="{ 'selected': category === selectedCategory }"
+            >
+              {{ category }}
+            </button>
+          </div>
         </div>
-    </div>
-  <div class = "col mt-3 text-dark text-center">
-    <h1 class="jumbotron-fluid">
-      <i class="fa fa-clock-o text-dark"></i> {{this.moves}}
-    </h1>
-  </div>
-  <div class = "col mt-4">
-      <h4 class="row jumbotron-fluid justify-content-center">
-        <img [src]="'../../../../../assets/images/avatars/'+this.avatarPc+'.png'" alt="card" class="mr-4 cell-img">
-        {{'features.battleship.game.pc' | translate}}
-      </h4>
-      <div class = "card-body table-responsive" >
-        <table class="table-cell jumbotron">
-          <tr *ngFor="let cellRow of game.pccells; let i = index;">
-            <td *ngFor="let cell of cellRow; let j = index;" (click)="onClick(i, j)">
-              <img [@battleship-cell-animation]="this.pcbackState[i][j]" [src]="'../../../../../assets/images/battleship/'+this.pcfrontState[i][j]+'.jpg'"
-                   class="cell-img" alt="battleship">
-            </td>
-          </tr>
-        </table>
       </div>
     </div>
+    <div class="row">
+      <div class="col-6 text-center mt-3 my-container"
+           *ngFor="let game of games">
+        <img [routerLink]="[game.toLowerCase()]"
+             [src]="'assets/images/games/' + game.toLowerCase() + '/home.jpg'"
+             [alt]="game.toLowerCase()"
+             class="img-fluid img" id="img">
+      </div>
+    </div>
+  </div>
 </div>

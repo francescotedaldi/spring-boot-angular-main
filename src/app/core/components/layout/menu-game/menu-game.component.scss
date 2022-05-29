@@ -1,0 +1,51 @@
+@import "../../../../../assets/styles/palette-battleship";
+
+.menu {
+  //background: $battleship-menu-bg;
+  //@include box-shadow(0 3px 5px 0 $battleship-menu-border);
+
+  display: grid;
+  grid-template-columns: 0.5fr 0.5fr 1fr ;
+  grid-template-rows: 1fr;
+  grid-template-areas: "img strong btn";
+
+  img {
+    width: 40px;
+    grid-area: img;
+  }
+  strong {
+    grid-area: strong;
+  }
+  ul {
+    grid-area: btn;
+  }
+
+  //.navbar-brand {
+  //  color: $battleship-menu-text;
+  //}
+}
+
+@media only screen and (max-width: 1060px) {
+  .menu {
+
+    display: block;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: "title" "btn";
+
+    img {
+      width: 40px;
+      grid-area: img;
+    }
+
+    strong {
+      text-align: center;
+      grid-area: strong;
+    }
+
+    ul {
+      grid-area: btn;
+      justify-content: center;
+    }
+  }
+}

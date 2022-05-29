@@ -1,42 +1,4 @@
-<app-menu [hideHome]="pageStatus !== pageStatuses.LOBBY"
-          (back)="backHandler()" ></app-menu>
-
-<div *ngIf="loggedUser" id="battleship" class="main">
-  <div class="container-fluid mt-3 pb-3">
-    <div class="row" *ngIf="pageStatus === pageStatuses.LOBBY">
-      <div class="col-12">
-        <app-home-instance
-          [instances]="instances"
-          (create)="createInstanceHandler()"
-          (edit)="editInstanceHandler($event)"
-          (delete)="deleteInstanceHandler($event)"
-          (play)="playInstanceHandler($event)"
-        >
-        </app-home-instance>
-      </div>
-    </div>
-    <div class="row" *ngIf="pageStatus === pageStatuses.CONFIGURATION">
-      <div class="col-12">
-        <app-home-settings
-          [instance]="selectedInstance"
-          (back)="backHandler()"
-          (save)="saveInstanceHandler($event)"
-        >
-        </app-home-settings>
-      </div>
-    </div>
-    <div class="row" *ngIf="pageStatus === pageStatuses.GAME">
-      <div class="col-12">
-        <app-home-game
-          (back)="backHandler()"
-          [game]="game"
-        >
-        </app-home-game>
-      </div>
-    </div>
-  </div>
-</div>
-
+<app-menu></app-menu>
+<app-home-game *ngIf="loggedUser"></app-home-game>
 <app-home-login *ngIf="!loggedUser" (login)="loginHandler($event)"></app-home-login>
-
 <app-footer></app-footer>

@@ -1,91 +1,83 @@
-@import "../_palette-default.scss";
-
-main {
-  background: $default-page-bg;
+main.battleship {
+  background: $battleship-page-bg;
 
   .menu {
-    background: $default-menu-bg;
-    //@include box-shadow(0 3px 5px 0 $default-menu-border);
+    background: $battleship-menu-bg;
+    @include box-shadow(0 3px 5px 0 $battleship-menu-border);
 
     .navbar-brand {
-      color: $default-menu-text;
+      color: $battleship-menu-text;
     }
   }
 
   footer {
-    background: $default-footer-bg;
-    color: $default-footer-text;
-    //@include box-shadow(3px 0 5px 0 $default-footer-border);
+    background: $battleship-footer-bg;
+    color: $battleship-footer-text;
+    @include box-shadow(3px 0 5px 0 $battleship-footer-border);
   }
 
   form {
     .form-control:focus {
-      border-color: $default-form-focus-border;
-      box-shadow: $default-form-focus-shadow;
+      border-color: $battleship-form-focus-border;
+      box-shadow: $battleship-form-focus-shadow;
     }
 
     &.required:after {
-      color: $default-required;
+      color: $battleship-required;
     }
   }
 
   .card {
-    &.card-battleship {
+    &.card-battleship, &.card-rank {
 
       .card-header {
-        background-color: $default-card-header-bg;
-        color: $default-card-header-text;
+        background-color: $battleship-card-header-bg;
+        color: $battleship-card-header-text;
         min-height: 55px;
         line-height: 31px;
       }
 
       .card-body {
-        color: $default-card-body-text;
+        color: $battleship-card-body-text;
       }
 
       .card-footer {
-        background-color: $default-card-footer-bg;
-        color: $default-card-footer-text;
+        background-color: $battleship-card-footer-bg;
+        color: $battleship-card-footer-text;
       }
     }
   }
 
   .btn {
     &.btn-game {
-      background: $default-button-bg;
-      border-color: $default-button-border;
-      color: $default-button-text;
+      background: $battleship-button-bg;
+      border-color: $battleship-button-border;
 
       &:hover, &:focus, &:active, &.active {
-        background: $default-button-bg-hover;
-        border-color: $default-button-border-hover;
-        color: $default-button-text-hover;
+        background: $battleship-button-bg-hover;
+        border-color: $battleship-button-border-hover;
       }
     }
   }
 
   .battleship-text {
-    color: $default-text;
+    color: $battleship-text;
   }
 
   .battleship-text-dark {
-    color: $default-text-dark;
-  }
-
-  .battleship-text-error {
-    color: $color-error;
+    color: $battleship-text-dark;
   }
 
   ::-webkit-scrollbar {
-    background-color: $default-scrollbar-bg;
+    background-color: $battleship-scrollbar-bg;
   }
 
   ::-webkit-scrollbar-track {
-    -webkit-box-shadow: $default-scrollbar-shadow;
+    -webkit-box-shadow: $battleship-scrollbar-shadow;
   }
 
   ::-webkit-scrollbar-thumb {
-    background-color: $default-scrollbar-bg-active;
-    -webkit-box-shadow: $default-scrollbar-shadow;
+    background-color: $battleship-scrollbar-bg-active;
+    -webkit-box-shadow: $battleship-scrollbar-shadow;
   }
 }

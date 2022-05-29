@@ -1,0 +1,45 @@
+<div id="battleship-page" class="h-100">
+  <app-menu-game
+    [hideHome]="pageStatus !== pageStatuses.LOBBY"
+    [gameType]="gameType"
+  >
+  </app-menu-game>
+  <div class="container-fluid mt-3 pb-3">
+    <div class="row" *ngIf="pageStatus === pageStatuses.LOBBY">
+      <div class="col-lg-8 col-12">
+        <app-battleship-instances
+          [instances]="instances"
+          (create)="createInstanceHandler()"
+          (edit)="editInstanceHandler($event)"
+          (delete)="deleteInstanceHandler($event)"
+          (play)="playInstanceHandler($event)"
+        >
+        </app-battleship-instances>
+      </div>
+      <div class="col-lg-4 mt-lg-0 mt-3 col-12">
+        <app-rank [ranks]="ranks"></app-rank>
+      </div>
+    </div>
+    <div class="row" *ngIf="pageStatus === pageStatuses.CONFIGURATION">
+      <div class="col-12">
+        <app-battleship-settings
+          [instance]="selectedInstance"
+          (back)="backHandler()"
+          (save)="saveInstanceHandler($event)"
+        >
+        </app-battleship-settings>
+      </div>
+    </div>
+    <div class="row" *ngIf="pageStatus === pageStatuses.GAME">
+      <div class="col-12">
+        <app-battleship-game
+          (back)="backHandler()"
+          (rank)="updateRankHandler($event)"
+          [game]="game"
+        >
+        </app-battleship-game>
+      </div>
+    </div>
+  </div>
+  <app-footer-game [gameType]="gameType"></app-footer-game>
+</div>
