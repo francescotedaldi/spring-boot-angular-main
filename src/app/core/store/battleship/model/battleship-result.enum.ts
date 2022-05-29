@@ -1,4 +1,4 @@
 export enum BattleshipResult {
-  WIN = "WIN",
-  LOSE = "LOSE"
+  WIN = 'WIN',
+  LOSE = 'LOSE'
 }

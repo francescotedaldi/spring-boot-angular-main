@@ -11,7 +11,7 @@
               {{ 'features.battleship.settings.name' | translate }}
             </label>
             <input type="text" class="form-control" id="name" formControlName="name">
-            <small *ngIf="submitted && f.name.errors?.required" class="battleship-text-error">
+            <small *ngIf="submitted && f.name.errors?.required" class="text-theme">
               {{ 'components.form.required_field' | translate }}
             </small>
           </div>
@@ -26,7 +26,7 @@
                 {{ 'components.enums.color' + color | translate }}
               </ng-option>
             </ng-select>
-            <small *ngIf="submitted && f.color.errors?.required" class="battleship-text-error">
+            <small *ngIf="submitted && f.color.errors?.required" class="text-theme">
               {{ 'components.form.required_field' | translate }}
             </small>
           </div>
@@ -37,13 +37,13 @@
               {{ 'features.battleship.settings.moves' | translate }}
             </label>
             <input type="moves" class="form-control" id="moves" formControlName="moves">
-            <small *ngIf="submitted && f.moves.errors?.required" class="battleship-text-error">
+            <small *ngIf="submitted && f.moves.errors?.required" class="text-theme">
               {{ 'components.form.required_field' | translate }}
             </small>
-            <small *ngIf="submitted && f.moves.errors?.min" class="battleship-text-error">
+            <small *ngIf="submitted && f.moves.errors?.min" class="text-theme">
               {{ 'components.form.min' | translate: { min: 30 } }}
             </small>
-            <small *ngIf="submitted && f.moves.errors?.max" class="battleship-text-error">
+            <small *ngIf="submitted && f.moves.errors?.max" class="text-theme">
               {{ 'components.form.max' | translate: { max: 100 } }}
             </small>
           </div>

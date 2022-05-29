@@ -1,8 +1,7 @@
 <app-menu></app-menu>
 <div class="container mt-5">
-  <div class="media">
-    <img src="assets/images/backgrounds/register.jpeg" alt="signup">
-    <div class="media-body text-center">
+  <img id="img" src="assets/images/backgrounds/register.jpeg" alt="signup">
+  <div id="body" class="body text-center">
       <form class="p-4 h-100" [formGroup]="form" (ngSubmit)="registerHandler()">
         <fieldset>
           <legend>{{'features.signup.title' | translate}}</legend>
@@ -42,6 +41,5 @@
         </fieldset>
       </form>
     </div>
-  </div>
 </div>
 <app-footer></app-footer>

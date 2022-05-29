@@ -1,5 +1,5 @@
+import {BattleColor} from '../../../enums/battlecolor.enum';
 import {ActiveModel, Validator} from '../../../model/active.model';
-import {BattleColor} from "../../../enums/battlecolor.enum";
 
 export interface BattleshipInstanceJSON {
   id: number;

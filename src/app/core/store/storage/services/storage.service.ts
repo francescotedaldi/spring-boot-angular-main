@@ -3,7 +3,7 @@ import {Storage} from '../model/storage.model';
 
 @Injectable({providedIn: 'root'})
 export class StorageService {
-  private readonly storageURL: string = 'jgaming_storage_data';
+  private readonly storageURL: string = 'sapienzagaming_storage_data';
   private readonly defaultStorage: Storage = {
     id: 'VERSION_0',
     user: null

@@ -79,7 +79,9 @@
     "enums": {
       "victory_points_ONE": "1",
       "victory_points_THREE": "3",
-      "victory_points_FIVE": "5"
+      "victory_points_FIVE": "5",
+      "colorROSSO": "ROSSO",
+      "colorBLU": "BLU"
     }
   },
   "features": {

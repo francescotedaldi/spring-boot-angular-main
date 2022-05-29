@@ -1,12 +1,32 @@
-.media {
-  height: 630px;
+.container {
+  display: grid;
+  grid-template-columns: 0.5fr 1fr;
+  grid-template-rows: 1fr;
+  grid-template-areas: "img body";
 
   img {
-    height: 630px;
+    height: 550px;
     width: auto;
+    grid-area: img;
   }
 
-  .media-body {
-    height: 630px;
+  .body {
+    height: 550px;
+    grid-area: body;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .container {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: "img"
+                         "body";
+
+    img {
+      width: 100%;
+      height: auto;
+      grid-area: img;
+    }
   }
 }
