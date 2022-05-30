@@ -1,6 +1,9 @@
 <div class="container">
   <div id="user" class="user mt-3">
-    <h4 class="text-center"> {{'features.battleship.game.user' | translate}} </h4>
+    <h4 class="text-center"> 
+      {{'features.battleship.game.user' | translate}}
+      <img class="cell-img" [src]="'../../../../../assets/images/avatars/'+this.avatarUser+'.png'">
+    </h4>
     <div class = "card-body table-responsive ">
       <table class="table-cell jumbotron ">
         <tr *ngFor="let cellRow of game.usercells; let i = index;">
@@ -10,6 +13,10 @@
           </td>
         </tr>
       </table>
+      <div class="row justify-content-center">
+        <i class="fa fa-ship mr-4" aria-hidden="true"></i>
+        <h4> {{ this.userCellHitted  }} / {{ this.maxCellToHit }} </h4>
+      </div>
     </div>
   </div>
   <div id="moves" class="moves mt-3">
@@ -19,7 +26,10 @@
     </h2>
   </div>
   <div id="pc" class="pc mt-3">
-    <h4 class="text-center"> {{'features.battleship.game.pc' | translate}} </h4>
+    <h4 class="text-center">
+      <img class="cell-img" [src]="'../../../../../assets/images/avatars/'+this.avatarPc+'.png'">
+       {{'features.battleship.game.pc' | translate}} 
+    </h4>
     <div class = "card-body table-responsive" >
       <table class="table-cell jumbotron">
         <tr *ngFor="let cellRow of game.pccells; let i = index;">
@@ -29,6 +39,10 @@
           </td>
         </tr>
       </table>
+      <div class="row justify-content-center">
+        <i class="fa fa-ship mr-4" aria-hidden="true"></i>
+        <h4> {{ this.pcCellHitted  }} / {{ this.maxCellToHit }} </h4>
+      </div>
     </div>
   </div>
 </div>

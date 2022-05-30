@@ -6,10 +6,10 @@ import {BattleshipGame} from 'src/app/core/store/battleship/model/battleship-gam
 import {BattleshipCellAnimation} from '../../../../core/animations/battleship-cell-animation';
 import {ModalBattleshipComponent} from '../../../../core/components/modals/modal-battleship/modal-battleship.component';
 import {BattleColor} from '../../../../core/enums/battlecolor.enum';
+import {GameType} from '../../../../core/enums/game-type.enum';
 import {BattleshipCellState} from '../../../../core/store/battleship/model/battleship-cell-state.enum';
 import {BattleshipResult} from '../../../../core/store/battleship/model/battleship-result.enum';
-import {RankUpdate} from "../../../../core/store/rank/model/rank-update.model";
-import {GameType} from "../../../../core/enums/game-type.enum";
+import {RankUpdate} from '../../../../core/store/rank/model/rank-update.model';
 
 @Component({
   selector: 'app-battleship-game',
@@ -19,7 +19,7 @@ import {GameType} from "../../../../core/enums/game-type.enum";
   animations: [BattleshipCellAnimation]
 })
 export class BattleshipGameComponent implements OnInit {
-  
+
   @Input()
   public game: BattleshipGame;
 
@@ -41,6 +41,10 @@ export class BattleshipGameComponent implements OnInit {
   public pcCellHitted: number;
   public maxCellToHit: number;
 
+  public avatarPc: number;
+  public avatarUser: number;
+
+
   public list: Set<[number, number]>;
 
   constructor(
@@ -50,11 +54,17 @@ export class BattleshipGameComponent implements OnInit {
   }
 
   public ngOnInit(): void {
+    this.avatarPc = this.generateRandom(50) + 1;
+    this.avatarUser = this.generateRandom(50) + 1;
+    while (this.avatarPc === this.avatarUser) {
+      this.avatarUser = this.generateRandom(50) + 1;
+    }
+
     this.list = new Set<[number, number]>();
     this.canClick = true;
     this.userCellHitted = 0;
     this.pcCellHitted = 0;
-    this.maxCellToHit = 30 ;
+    this.maxCellToHit = 30;
     this.moves = this.game.instance.moves;
     this.userfrontState = new Array(this.game.getDimension());
     this.pcfrontState = new Array(this.game.getDimension());
